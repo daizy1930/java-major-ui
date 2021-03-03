@@ -1,13 +1,10 @@
 $theme-color: #3e416d;
-$theme: #2E1A47;
 $basic-font-color: #ffffff;
 .myNav{
     background-color: $theme-color;
     color: $basic-font-color;
 }
-.myNav1{
-    background-color: $theme;
-}
+
 .myBadge{
     top: -.7em;
     position: relative;

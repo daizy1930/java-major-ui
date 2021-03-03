@@ -14,15 +14,17 @@ import { ViewVideoComponent } from './view-video/view-video.component';
 import { EditVideoComponent } from './edit-video/edit-video.component';
 import { EditCourseComponent } from './edit-course/edit-course.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+
 
 
 
 
 @NgModule({
-  declarations: [AdminHeaderComponent, AdminFooterComponent, AdminSidebarComponent, UserLogComponent, ReportsComponent, ViewCourseComponent, AddCourseComponent, ViewCategoryComponent, AddCategoryComponent, AddVideoComponent, ViewVideoComponent, EditVideoComponent, EditCourseComponent, EditCategoryComponent],
+  declarations: [AdminHeaderComponent, AdminFooterComponent, AdminSidebarComponent, UserLogComponent, ReportsComponent, ViewCourseComponent, AddCourseComponent, ViewCategoryComponent, AddCategoryComponent, AddVideoComponent, ViewVideoComponent, EditVideoComponent, EditCourseComponent, EditCategoryComponent, AdminDashboardComponent],
   imports: [
-    CommonModule
+    CommonModule, 
   ],
-  exports: [AdminHeaderComponent, AdminFooterComponent, AdminSidebarComponent, AddCategoryComponent, AddCourseComponent, AddVideoComponent, ViewCategoryComponent, ViewCourseComponent, ViewVideoComponent, EditCategoryComponent, EditCourseComponent, EditVideoComponent, ReportsComponent, UserLogComponent]
+  exports: [AdminHeaderComponent, AdminFooterComponent, AdminSidebarComponent, AddCategoryComponent, AddCourseComponent, AddVideoComponent, ViewCategoryComponent, ViewCourseComponent, ViewVideoComponent, EditCategoryComponent, EditCourseComponent, EditVideoComponent, ReportsComponent, UserLogComponent, AdminDashboardComponent]
 })
 export class AdminModule { }

@@ -1,0 +1,80 @@
+<div class="container myFonts">
+
+
+    <div class="row ">
+        <div class="col-lg-6">
+            <div class="card mb-3 myRow">
+                <div class="row ">
+                    <div class="card-body">
+                        <h5 class="card-title ps-1">Recent Categories<div class="float-end h6 ">
+                                <a href="#" class="seeAll pe-1">See all</a>
+                            </div>
+                        </h5>
+
+                        <p class="card-text ">
+
+                            <div class="box">
+                                <div class="card mb-3" *ngFor="let c of categories">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <img src="{{c.categoryLogo}}" alt="Category Logo"
+                                                class="img-fluid">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title ">{{c.categoryName | titlecase}}</h5>
+                                                <p class="card-text">{{c.categoryDesc}}
+                                                </p>
+                                                <p class="card-text"><small class="text-muted">Last updated 3 mins
+                                                        ago</small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-lg-6">
+            <div class="card mb-3 myRow">
+                <div class="row">
+                    <div class="card-body">
+                        <h5 class="card-title ps-1">Recent Courses <div class="float-end h6">
+                                <a href="#" class="seeAll pe-1">See all</a>
+                            </div>
+                        </h5>
+                        <p class="card-text">
+
+                            <div class="box">
+                                <div class="card mb-3" *ngFor="let co of courses">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <img  src="{{co.courseLogo}}" alt="Course Logo">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{co.courseName | titlecase}}</h5>
+                                                <p class="card-text">{{co.courseDesc}}
+                                                </p>
+                                                <p class="card-text">{{co.coursePrice | currency : "INR"}}
+                                                    </p>
+                                                <p class="card-text"><small class="text-muted">Last updated 3 mins
+                                                        ago</small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
