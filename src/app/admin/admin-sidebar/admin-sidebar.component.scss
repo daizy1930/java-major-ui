@@ -32,7 +32,7 @@ a, a:hover, a:focus {
 }
 .myCourse{
     font-family: $font-faimily;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 .myCourse:hover{
     background-color: $sidebar-theme;
@@ -64,7 +64,7 @@ a, a:hover, a:focus {
     transform-origin: bottom left;
     font-family: $font-faimily;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
-    
+    height: 90vh;
 }
 
 #sidebar.active {
@@ -189,10 +189,11 @@ a.article:hover {
     CONTENT STYLE
 ----------------------------------------------------- */
 #content {
-    width: 30%;
+    width:10%;
     // padding: 20px;
+    height: 90%;
     padding-left: 7px;
-    min-height: 90vh;
+    min-height: 95vh;
     transition: all 0.3s;
 }
 
@@ -240,8 +241,10 @@ a.article:hover {
         transform: rotateY(90deg);
         font-size: 0.9em;
         padding: 0.4px;
+        height: 100vh;
         
     }
+  
     .wrapper {
         display: flex;
         width: 10%;

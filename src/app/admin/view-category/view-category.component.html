@@ -1,1 +1,18 @@
-<p>view-category works!</p>
+<div class="container myFonts">
+        <div class="row">
+            <div class="col-lg-2"></div>
+
+           
+                    <div class="card mx-3 myCards" style="width: 18rem;" *ngFor="let c of categories" >
+                            <img src="{{c.categoryLogo}}" class="card-img-top img-fluid" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">{{c.categoryName}}</h5>
+                              <p class="card-text">{{c.categoryDesc}}</p>
+                              <a href="#" class="btn btn-primary me-4">Edit</a>
+                              <a href="#" class="btn btn-danger ms-5">Remove</a>
+                            </div>
+                          </div>
+
+
+        </div>   
+</div>        

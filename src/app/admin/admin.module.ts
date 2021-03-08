@@ -15,16 +15,23 @@ import { EditVideoComponent } from './edit-video/edit-video.component';
 import { EditCourseComponent } from './edit-course/edit-course.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
+const routes: Routes = [
+  {path: '', component: AdminDashboardComponent },
 
+];
 
 
 @NgModule({
   declarations: [AdminHeaderComponent, AdminFooterComponent, AdminSidebarComponent, UserLogComponent, ReportsComponent, ViewCourseComponent, AddCourseComponent, ViewCategoryComponent, AddCategoryComponent, AddVideoComponent, ViewVideoComponent, EditVideoComponent, EditCourseComponent, EditCategoryComponent, AdminDashboardComponent],
   imports: [
     CommonModule, 
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
-  exports: [AdminHeaderComponent, AdminFooterComponent, AdminSidebarComponent, AddCategoryComponent, AddCourseComponent, AddVideoComponent, ViewCategoryComponent, ViewCourseComponent, ViewVideoComponent, EditCategoryComponent, EditCourseComponent, EditVideoComponent, ReportsComponent, UserLogComponent, AdminDashboardComponent]
+  exports: [AdminHeaderComponent, AdminFooterComponent, AdminSidebarComponent, AddCategoryComponent, AddCourseComponent, AddVideoComponent, ViewCategoryComponent, ViewCourseComponent, ViewVideoComponent, EditCategoryComponent, EditCourseComponent, EditVideoComponent, ReportsComponent, UserLogComponent, AdminDashboardComponent,RouterModule]
 })
 export class AdminModule { }

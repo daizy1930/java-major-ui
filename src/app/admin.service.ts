@@ -18,9 +18,17 @@ export class AdminService {
     console.log(environment.baseCategoryUrl)
     return this.http.get<any>(environment.baseCategoryUrl);
   }
+  
   getCourses(): Observable<any> {
     console.log(environment.baseCourseUrl)
     return this.http.get<any>(environment.baseCourseUrl);
   }
  
-}
+  getCategoriesById(id: any): Observable<any>{
+    return this.http.get<any>(environment.baseCategoryUrl);
+  }
+
+  
+
+  }
+

@@ -49,5 +49,18 @@ $font-faimily: gotham-rounded,helvetica neue,helvetica !important;
   color: lighten($font-color, 15);
   cursor: pointer;
 }
-  
+.myCards{
+  padding: 10px;
+  color: $theme-color;
+}
+.imgDash{
+  padding-top: 60px;
+}
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    height: 30px;
+    width: 30px;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-size: 100%, 100%;
+    border-radius: 50%;
+}  
   
