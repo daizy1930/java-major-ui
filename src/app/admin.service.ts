@@ -26,7 +26,7 @@ export class AdminService {
   }
  
   getCategoriesById(id: any): Observable<any>{
-    return this.http.get<any>(environment.baseCategoryUrl);
+    return this.http.get<any>(environment.baseCategoryUrl+"/"+id);
   }
   getCategoriesCount(): Observable<any> {
     console.log(environment.baseCategoryUrl)
@@ -46,8 +46,13 @@ export class AdminService {
     return this.http.post<any>(environment.baseCategoryUrl+"/add",{categoryName, categoryDesc, categoryLogo})
   }
 
-
-
+  editCategory(categoryName: any, categoryDesc: any, categoryLogo:any,categoryId:any):Observable<any>{
+    // console.log(category);   
+    return this.http.put<any>(environment.baseCategoryUrl+"/"+categoryId,{categoryName, categoryDesc, categoryLogo,categoryId})
+  }
+  deleteCategory(id: any): Observable<any>{
+    return this.http.delete<any>(environment.baseCategoryUrl+"/"+id);
+  }
 
   }
 

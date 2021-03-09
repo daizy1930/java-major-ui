@@ -1,1 +1,24 @@
 <p>edit-category works!</p>
+<div class="container-fluid myFonts">
+        <div class="row cat">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-10">
+                        <form [formGroup]="editCategoryForm">
+                                <input type="hidden" formControlName="categoryId"  >
+                                CategoryName: <input type="text" formControlName="categoryName" >
+                                
+                                <br>
+                                <br>
+                                Category-Description: <textarea rows="5" cols="10" formControlName="categoryDesc" ></textarea>
+                                <br>
+                                <br>
+                                <input type="text" formControlName="oldcategoryLogo"  >
+                                Category-Image: <input type="file" multiple accept="image/*" formControlName="categoryLogo" >
+                                <br>
+                                <br>
+                               
+                                <input type="submit" value="Update" (click) ="updateCategory()">
+                            </form>
+                </div>
+        </div>
+ </div>
