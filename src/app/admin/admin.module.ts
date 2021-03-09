@@ -16,7 +16,7 @@ import { EditCourseComponent } from './edit-course/edit-course.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -31,7 +31,8 @@ const routes: Routes = [
     CommonModule, 
     RouterModule.forRoot(routes),
     FormsModule
-  ],
+,
+ReactiveFormsModule  ],
   exports: [AdminHeaderComponent, AdminFooterComponent, AdminSidebarComponent, AddCategoryComponent, AddCourseComponent, AddVideoComponent, ViewCategoryComponent, ViewCourseComponent, ViewVideoComponent, EditCategoryComponent, EditCourseComponent, EditVideoComponent, ReportsComponent, UserLogComponent, AdminDashboardComponent,RouterModule]
 })
 export class AdminModule { }

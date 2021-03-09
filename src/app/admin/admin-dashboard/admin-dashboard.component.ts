@@ -11,6 +11,10 @@ export class AdminDashboardComponent implements OnInit {
 
   categories: any
   courses: any
+  total_cat:any
+  total_cou:any
+  total_user:any
+
   constructor(private as: AdminService) { 
   }
   
@@ -45,6 +49,59 @@ export class AdminDashboardComponent implements OnInit {
       console.log('Error is:',err);
       
     });
+
+
+
+    //count of categories  
+    this.as.getCategoriesCount()
+    .subscribe((data)=>{
+      
+      
+      this.total_cat=data;
+      console.log(this.total_cat);
+      // console.log("glfjkdsghlgkjds");
+      
+    },
+    (err)=>{
+      console.log('Error is:',err);
+      
+    });
+
+    
+    //count of courses
+    this.as.getCourseCount()
+    .subscribe((data)=>{
+      
+      
+      this.total_cou=data;
+      console.log(this.total_cou);
+      // console.log("glfjkdsghlgkjds");
+      
+    },
+    (err)=>{
+      console.log('Error is:',err);
+      
+    });
+
+
+
+    //count of users
+    this.as.getUserCount()
+    .subscribe((data)=>{
+      
+      
+      this.total_user=data;
+      console.log(this.total_user);
+      // console.log("glfjkdsghlgkjds");
+      
+    },
+    (err)=>{
+      console.log('Error is:',err);
+      
+    });
+    
+  
+  
 
     
   }

@@ -3,6 +3,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { environment } from '../environments/environment.prod'
 import { Observable } from 'rxjs';
+import { Category } from './category';
 
 
 @Injectable({
@@ -27,8 +28,26 @@ export class AdminService {
   getCategoriesById(id: any): Observable<any>{
     return this.http.get<any>(environment.baseCategoryUrl);
   }
+  getCategoriesCount(): Observable<any> {
+    console.log(environment.baseCategoryUrl)
+    return this.http.get<any>(environment.baseCategoryUrl+"/total");
+  }
+  getCourseCount(): Observable<any> {
+    console.log(environment.baseCategoryUrl)
+    return this.http.get<any>(environment.baseCourseUrl+"/total");
+  }
+  getUserCount(): Observable<any> {
+    console.log(environment.baseUserUrl)
+    return this.http.get<any>(environment.baseUserUrl+"/total");
+  }
 
-  
+  addCategory(categoryName: any, categoryDesc: any, categoryLogo:any):Observable<any>{
+    // console.log(category);   
+    return this.http.post<any>(environment.baseCategoryUrl+"/add",{categoryName, categoryDesc, categoryLogo})
+  }
+
+
+
 
   }
 

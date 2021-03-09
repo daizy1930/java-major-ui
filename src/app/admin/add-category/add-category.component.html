@@ -1,1 +1,21 @@
-<p>add-category works!</p>
+<div class="container-fluid myFonts">
+        <div class="row cat">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-10">
+                        <form [formGroup]="categoryForm">
+                                CategoryName: <input type="text" formControlName="categoryName">
+                                
+                                <br>
+                                <br>
+                                Category-Description: <textarea rows="5" cols="10" formControlName="categoryDesc" ></textarea>
+                                <br>
+                                <br>
+                                Category-Image: <input type="file" multiple accept="image/*" formControlName="categoryLogo">
+                                <br>
+                                <br>
+                               
+                                <input type="submit" value="Add" (click) ="addCategory()">
+                            </form>
+                </div>
+        </div>
+ </div>

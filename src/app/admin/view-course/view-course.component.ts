@@ -14,6 +14,7 @@ export class ViewCourseComponent implements OnInit {
   courses: any
   coursesByCat:any
   search=""
+ 
   constructor(private as: AdminService) { 
   }
   
@@ -49,19 +50,26 @@ export class ViewCourseComponent implements OnInit {
       
     });
 
+
+  
+ 
+ 
+     
+
    
   }
-
   getCoursesByCat(uniqueCat: any){
-     console.log(uniqueCat);
-    // console.log(this.coursesByCat.value.category);
-    this.coursesByCat=this.courses.filter((x:any)=>{return x.category==uniqueCat});
-        }
-    
-        
-        getCategory(event:any){
-            console.log(event);
-        }
-  
+    console.log(uniqueCat);
+   // console.log(this.coursesByCat.value.category);
+   this.coursesByCat=this.courses.filter((x:any)=>{return x.category==uniqueCat});
+       }
+   
+       
+       getCategory(event:any){
+           console.log(event);
+       }
+
+
+ 
 
 }

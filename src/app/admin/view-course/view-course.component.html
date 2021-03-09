@@ -62,7 +62,7 @@
                                         <div class="col-4">
                                             <img src="{{co.courseLogo}}" alt="Course Logo">
                                         </div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-6">
                                             <div class="card-body">
                                                 <h5 class="card-title">{{co.courseName | titlecase}}</h5>
                                                 <p class="card-text">{{co.courseDesc}}
@@ -71,7 +71,13 @@
                                                 </p>
                                                 <p class="card-text"><small class="text-muted">{{co.category}}</small>
                                                 </p>
+
                                             </div>
+                                        </div>
+
+                                        <div class="col-lg-2">
+                                                <a routerLink="/edit-course" class="btn btn-primary my-4"><i class="far fa-edit"></i></a><br>
+                                                <a routerLink="/edit-course" class="btn btn-danger my-3"><i class="far fa-trash-alt"></i></a>
                                         </div>
                                     </div>
                                 </div>

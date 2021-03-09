@@ -12,6 +12,10 @@ $font-faimily: gotham-rounded,helvetica neue,helvetica !important;
  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
  cursor: pointer;
 } 
+.myCards:nth-child(4n+1){
+  background-color: #F00;
+  margin-left: 20px;
+}
 
 .myCards:hover{
   
@@ -28,3 +32,14 @@ $font-faimily: gotham-rounded,helvetica neue,helvetica !important;
   75%  { top: -10px;}
   100% { top: 0px;}
 }
+.myBtn{
+  background-color: $theme-color;
+  border: 1px $theme-color;
+  color: white;
+}
+.cat{
+  cursor: pointer;
+}
+// .myTempDiv{
+//   height: 100vh;;
+// }

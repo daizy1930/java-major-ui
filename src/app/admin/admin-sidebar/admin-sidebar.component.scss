@@ -47,6 +47,7 @@ a, a:hover, a:focus {
 .wrapper {
     display: flex;
     width: 30%;
+    z-index: 20;
     float: left;
     align-items: stretch;
     perspective: 1500px;
@@ -64,7 +65,7 @@ a, a:hover, a:focus {
     transform-origin: bottom left;
     font-family: $font-faimily;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
-    height: 90vh;
+    // height: 90vh;
 }
 
 #sidebar.active {
