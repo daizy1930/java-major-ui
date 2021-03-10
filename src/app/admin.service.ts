@@ -42,7 +42,7 @@ export class AdminService {
   }
 
   addCategory(categoryName: any, categoryDesc: any, categoryLogo:any):Observable<any>{
-    // console.log(category);   
+     console.log(categoryName);   
     return this.http.post<any>(environment.baseCategoryUrl,{categoryName, categoryDesc, categoryLogo})
   }
 

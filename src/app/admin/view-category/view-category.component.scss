@@ -22,6 +22,12 @@ $font-faimily: gotham-rounded,helvetica neue,helvetica !important;
  
 }
 
+.card-img-top {
+  width: 100%;
+  height: 10vw;
+  object-fit: cover;
+}
+
 @keyframes myfirst {
   0%   {top: 0px;}
   25%  { top: 0px;}

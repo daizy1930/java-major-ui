@@ -42,7 +42,7 @@ export class AdminDashboardComponent implements OnInit {
       
       this.courses=data;
       console.log(this.courses);
-      // console.log("glfjkdsghlgkjds");
+      
       
     },
     (err)=>{
@@ -59,7 +59,7 @@ export class AdminDashboardComponent implements OnInit {
       
       this.total_cat=data;
       console.log(this.total_cat);
-      // console.log("glfjkdsghlgkjds");
+     
       
     },
     (err)=>{
