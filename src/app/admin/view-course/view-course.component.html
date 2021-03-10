@@ -1,7 +1,14 @@
 
+<div class="container-fluid myFonts">
+    <div class="row float-end">
+        <div class="col-lg-12">
+            <a class="btn btn-primary myBtn" routerLink="/add-course">Add Course</a>
+          </div>
+    </div>
 <div class="container myFonts">
 
-        <div class="col-lg-4"><input type="text" name="search"  (ngModelChange)="getCategory($event)"  [(ngModel)]="search"></div>
+        <!-- <div class="col-lg-4"><input type="text" name="search"  (ngModelChange)="getCategory($event)"  [(ngModel)]="search"></div> -->
+       
    
     <div class="row">
         <div class="col-lg-2"></div>
@@ -10,14 +17,14 @@
             <div class="card myRow">
                 <div class="row ">
                     <div class="card-body">
-                        <h5 class="card-title ps-1">Categories
+                        <h5 class="card-title ps-1 headingFonts">Categories
                         </h5>
 
                         <p class="card-text ">
 
                             <div class="box">
 
-                                <div class="card mb-3" *ngFor="let c of categories">
+                                <div class="card courseCatCards " *ngFor="let c of categories">
                                     <a (click)="getCoursesByCat(c.categoryName)">
                                         <div class="row">
                                             <div class="col-4 px-3 py-3">
@@ -32,6 +39,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                       
                                     </a>
                                 </div>
 
@@ -50,18 +58,25 @@
             <div class="card mb-3 myRow">
                 <div class="row">
                     <div class="card-body">
-                        <h5 class="card-title ps-1">Courses <div class="float-end h6">
-                                <a href="#" class="seeAll pe-1">See all</a>
-                            </div>
+                           
+                        <h5 class="card-title ps-1 headingFonts" *ngIf="!catName">All Courses</h5>
+                        <h5 class="card-title ps-1 headingFonts" *ngIf="catName">{{catName}} <div class="float-end  seeAll pe-2">
+                          ({{coursesByCatCount}}) Courses
+                        </div>
                         </h5>
                         <p class="card-text">
 
                             <div class="box">
-                                <div class="card mb-3" *ngFor="let co of coursesByCat">
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <img src="{{co.courseLogo}}" alt="Course Logo">
+                                    <div class="px-5 text-center py-5"  *ngIf="coursesByCat.length==0">
+                                            No Courses Found!!!
                                         </div>
+                                <div class="card mb-3 courseCards" *ngFor="let co of coursesByCat">
+                                   <div class="row">
+                                       
+                                        <div class="col-4 px-3 py-3">
+                                            <img src="{{co.courseLogo}}" alt="Course Logo" class="img-fluid">
+                                        </div>
+
                                         <div class="col-md-6">
                                             <div class="card-body">
                                                 <h5 class="card-title">{{co.courseName | titlecase}}</h5>
@@ -76,10 +91,11 @@
                                         </div>
 
                                         <div class="col-lg-2">
-                                                <a routerLink="/edit-course" class="btn btn-primary my-4"><i class="far fa-edit"></i></a><br>
-                                                <a routerLink="/edit-course" class="btn btn-danger my-3"><i class="far fa-trash-alt"></i></a>
+                                                <a class="btn btn-primary my-4 "  (click)="editCourse(co.courseId)"><i class="far fa-edit"></i></a><br>
+                                                <a  class="btn btn-danger my-3" (click)="deleteCourse(co.courseId)"><i class="far fa-trash-alt"></i></a>
                                         </div>
                                     </div>
+                                    <hr>
                                 </div>
                             </div>
                     </div>

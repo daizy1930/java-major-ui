@@ -1,1 +1,98 @@
-<p>view-video works!</p>
+
+<div class="container-fluid myFonts">
+    <div class="row float-end">
+        <div class="col-lg-12">
+            <a class="btn btn-primary myBtn" routerLink="/add-course">Add Video</a>
+          </div>
+    </div>
+<div class="container myFonts">
+
+    <!-- <div class="col-lg-4"><input type="text" name="search"  (ngModelChange)="getcourse($event)"  [(ngModel)]="search"></div> -->
+   
+<div class="row">
+    <div class="col-lg-2"></div>
+   
+    <div class="col-lg-3">
+        <div class="card myRow">
+            <div class="row ">
+                <div class="card-body">
+                    <h5 class="card-title ps-1 headingFonts">Courses
+                    </h5>
+
+                    <p class="card-text ">
+
+                        <div class="box">
+
+                            <div class="card mb-3 videoCourseCards" *ngFor="let c of courses">
+                                <a (click)="getVideosByCourse(c.courseName)">
+                                    <div class="row">
+                                        <div class="col-4 px-3 py-3">
+                                            <img src="{{c.courseLogo}}" alt="Course Logo"
+                                                        class="img-fluid">
+                                         </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title ">{{c.courseName | titlecase}}</h5>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </a>
+                            </div>
+
+
+
+                        </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-7">
+        <div class="card mb-3 myRow">
+            <div class="row">
+                <div class="card-body">
+                    <h5 class="card-title ps-1 headingFonts">Videos 
+                    </h5>
+                    <p class="card-text">
+
+                        <div class="box">
+                            <div class="card mb-3 videoCards" *ngFor="let vc of videoByCourse">
+                                <div class="row">
+                                    <div class="col-4 px-3 py-3">
+                                        <video src="{{vc.videoPath}}" width="200px" height="250px" controls></video>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{vc.videoName | titlecase}}</h5>
+                                            <p class="card-text">{{vc.videoDesc}}
+                                            </p>
+                                            <p class="card-text">{{vc.videoPrice | currency : "INR"}}
+                                            </p>
+                                            <p class="card-text"><small class="text-muted">{{vc.course}}</small>
+                                            </p>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-2">
+                                            <a  class="btn btn-primary my-4 "  (click) = "editVideo(vc.videoId)" ><i class="far fa-edit"></i></a><br>
+                                            <a  class="btn btn-danger my-3"  (click) = "deleteVideo(vc.videoId)"><i class="far fa-trash-alt"></i></a>
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+

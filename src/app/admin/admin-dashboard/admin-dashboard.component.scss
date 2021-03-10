@@ -15,6 +15,7 @@ $font-faimily: gotham-rounded,helvetica neue,helvetica !important;
 
 .myRow{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+ 
 } 
  /* width */
 ::-webkit-scrollbar {
@@ -63,4 +64,10 @@ $font-faimily: gotham-rounded,helvetica neue,helvetica !important;
     background-size: 100%, 100%;
     border-radius: 50%;
 }  
+.categoryCards{
+  border:0px white;
+}
+.headingFonts{
+  color:$theme-color;
+}
   

@@ -23,6 +23,9 @@ export class AddCategoryComponent implements OnInit {
 
   addCategory(){
     console.log(this.categoryForm.value)
-    this.as.addCategory(this.categoryForm.value.categoryName, this.categoryForm.value.categoryDesc,this.categoryForm.value.categoryLogo).subscribe((data)=>{})
+    this.as.addCategory(this.categoryForm.value.categoryName, this.categoryForm.value.categoryDesc,this.categoryForm.value.categoryLogo).subscribe((data)=>{
+    this.router.navigate(['/categories'])
+
+    })
   }
 }

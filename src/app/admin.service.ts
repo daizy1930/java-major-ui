@@ -43,7 +43,7 @@ export class AdminService {
 
   addCategory(categoryName: any, categoryDesc: any, categoryLogo:any):Observable<any>{
     // console.log(category);   
-    return this.http.post<any>(environment.baseCategoryUrl+"/add",{categoryName, categoryDesc, categoryLogo})
+    return this.http.post<any>(environment.baseCategoryUrl,{categoryName, categoryDesc, categoryLogo})
   }
 
   editCategory(categoryName: any, categoryDesc: any, categoryLogo:any,categoryId:any):Observable<any>{
@@ -53,6 +53,53 @@ export class AdminService {
   deleteCategory(id: any): Observable<any>{
     return this.http.delete<any>(environment.baseCategoryUrl+"/"+id);
   }
+
+  addCourse(courseName: any, courseDesc: any, courseLogo:any, coursePrice: any, likes: any,
+     categoryId: any):Observable<any>{
+    // console.log(category);   
+    return this.http.post<any>(environment.baseCourseUrl+ "/" +categoryId,{courseName, courseDesc, courseLogo, coursePrice, likes, categoryId  })
+  }
+  getCourseById(id: any): Observable<any>{
+    return this.http.get<any>(environment.baseCourseUrl+"/"+id);
+  }
+
+  editCourse(courseId:any,courseName: any, courseDesc: any, courseLogo:any,coursePrice: any,likes: any,categoryId: any):Observable<any>{
+    // console.log(category);   
+    return this.http.put<any>(environment.baseCourseUrl+"/"+courseId+"/"+categoryId,{courseName, courseDesc, courseId,coursePrice,courseLogo,likes,categoryId})
+  }
+
+  deleteCourse(id: any): Observable<any>{
+    return this.http.delete<any>(environment.baseCourseUrl+"/"+id);
+  }
+
+  getVideos(): Observable<any> {
+    console.log(environment.baseVideoUrl)
+    return this.http.get<any>(environment.baseVideoUrl);
+  }
+
+  getVideoById(id: any): Observable<any>{
+    return this.http.get<any>(environment.baseVideoUrl+"/"+id);
+  }
+
+  addVideo(videoName: any, videoDesc: any, videoPath:any,courseId:any):Observable<any>{
+   // console.log(category);   
+   return this.http.post<any>(environment.baseVideoUrl+ "/" +courseId,{videoName, videoDesc, videoPath,courseId  })
+ }
+ deleteVideo(id: any): Observable<any>{
+  return this.http.delete<any>(environment.baseVideoUrl+"/"+id);
+}
+
+
+
+
+ editVideo(videoId:any,videoName: any,videoDesc: any,videoPath:any,courseId: any):Observable<any>{
+    // console.log(category);   
+    return this.http.put<any>(environment.baseVideoUrl+"/"+videoId+"/"+courseId,{videoName,videoDesc,videoId,videoPath,courseId})
+  }
+
+
+
+
 
   }
 

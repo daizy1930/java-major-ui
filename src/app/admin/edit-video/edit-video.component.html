@@ -1,1 +1,30 @@
-<p>edit-video works!</p>
+<div class="container-fluid myFonts">
+    <div class="row cat">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-10">
+                    <form [formGroup]="editVideoForm">
+                            <input type="hidden" formControlName="videoId"  >
+                           Selected Course: <input type="text" formControlName="courseId">
+                            <br>
+                            <br>
+                           videoName: <input type="text" formControlName="videoName">
+                            
+                            <br>
+                            <br>
+                           video-Description: <textarea rows="5" cols="10" formControlName="videoDesc" ></textarea>
+                            <br>
+                            <br>
+                            <input type="text" formControlName="oldvideoPath"  >
+                            <br><br>
+                           video-Path: <input type="file" multiple accept="image/*" formControlName="videoPath">
+                           <br>
+                           <br>
+                           
+                         
+                          
+                           
+                            <input type="submit" value="Update" (click)="updateVideo()">
+                        </form>
+            </div>
+    </div>
+</div>

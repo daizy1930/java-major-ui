@@ -1,1 +1,36 @@
-<p>add-course works!</p>
+<div class="container-fluid myFonts">
+        <div class="row cat">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-10">
+                        <form [formGroup]="courseForm">
+                               Select Category: <select formControlName="categoryId">
+                                       
+                                                <option *ngFor="let c of categories" [ngValue]="c.categoryId" (click)="selectedCategory(c.categoryId)">{{ c.categoryName }}</option>
+                                            
+                                </select>
+                                <br>
+                                <br>
+                                CourseName: <input type="text" formControlName="courseName">
+                                
+                                <br>
+                                <br>
+                                Course-Description: <textarea rows="5" cols="10" formControlName="courseDesc" ></textarea>
+                                <br>
+                                <br>
+                                Course-Image: <input type="file" multiple accept="image/*" formControlName="courseLogo">
+                                <br>
+                                <br>
+                                Course-Price: <input type="number" formControlName="coursePrice">
+                                <br>
+                                <br>
+                                Course-Likes: <input type="hidden"  formControlName="likes">
+                                <br>
+                                <br>
+                             
+                              
+                               
+                                <input type="submit" value="Add" (click) = "addCourse()">
+                            </form>
+                </div>
+        </div>
+ </div>

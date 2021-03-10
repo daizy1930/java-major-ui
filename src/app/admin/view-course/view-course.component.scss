@@ -9,10 +9,11 @@ $font-faimily: gotham-rounded,helvetica neue,helvetica !important;
 .box{
     border: 1px solid $sidebar-theme;
     padding-top: -1.2em;
-   height: 450px;
+   height: 750px;
    // overflow: scroll;
    overflow: scroll;
    box-shadow: 0 7px 14px 0 rgb(65 69 88 / 10%), 0 3px 6px 0 rgb(0 0 0 / 7%);
+ 
    
  }
 
@@ -42,8 +43,30 @@ $font-faimily: gotham-rounded,helvetica neue,helvetica !important;
  }
 
  .seeAll{
-  font-size: 15px;
+  font-size: 20px;
   color: lighten($font-color, 15);
-  cursor: pointer;
   text-decoration: none;
+  
+}
+.myBtn{
+  background-color: $theme-color;
+  border: 1px $theme-color;
+  color: white;
+}
+.courseCards{
+ 
+  border: 0px white;
+}
+.courseCatCards{
+  cursor: pointer;
+  border: 0px white;
+}
+.courseCatCards:hover{
+border-left: 1px solid darken($theme-color,30);
+color: darken($theme-color,10);
+background-color: lighten($sidebar-theme,1);
+// border-bottom-left-radius: 30px;
+}
+.headingFonts{
+  color:$theme-color;
 }

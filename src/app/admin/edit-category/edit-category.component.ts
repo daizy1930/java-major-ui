@@ -13,11 +13,15 @@ export class EditCategoryComponent implements OnInit {
   categories:any
   categoryById:any
   editCategoryForm!: FormGroup;
+  uploadForm: any;
   constructor(private route:ActivatedRoute,private as:AdminService,private router:Router) {
     
    }
 
   ngOnInit(): void {
+
+
+    
 
     console.log(this.id = this.route.snapshot.params['id']);
     this.as.getCategoriesById(this.id).subscribe((data)=>
@@ -35,6 +39,9 @@ export class EditCategoryComponent implements OnInit {
     },
     error => console.log(error));
   }
+
+
+ 
   updateCategory(){
     console.log(this.editCategoryForm.value.categoryLogo);
     this.as.editCategory(this.editCategoryForm.value.categoryName, this.editCategoryForm.value.categoryDesc,this.editCategoryForm.value.categoryLogo,this.editCategoryForm.value.categoryId).subscribe((data)=>{
@@ -60,6 +67,6 @@ export class EditCategoryComponent implements OnInit {
     
   }
 
-
+  
 
 }

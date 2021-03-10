@@ -8,16 +8,19 @@ import { AddCategoryComponent } from './admin/add-category/add-category.componen
 import { AddCourseComponent } from './admin/add-course/add-course.component';
 import { AddVideoComponent } from './admin/add-video/add-video.component';
 import { EditCategoryComponent } from './admin/edit-category/edit-category.component';
+import { EditCourseComponent } from './admin/edit-course/edit-course.component';
+import { EditVideoComponent } from './admin/edit-video/edit-video.component';
 
 const routes: Routes = [
   {path: '', component: AdminDashboardComponent },
   {path: 'categories', component: ViewCategoryComponent },
   {path: 'add-category', component: AddCategoryComponent},
-
   {path: 'edit-category/:id', component: EditCategoryComponent},
   {path: 'courses', component: ViewCourseComponent},
+  {path: 'edit-course/:id', component: EditCourseComponent},
   {path: 'add-course', component: AddCourseComponent},
   {path: 'videos', component: ViewVideoComponent},
+  {path: 'edit-video/:id', component: EditVideoComponent},
   {path: 'add-video', component: AddVideoComponent},
 
 ];

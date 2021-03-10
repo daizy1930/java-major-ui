@@ -129,20 +129,20 @@
     <div class="row ">
             <div class="col-lg-2"></div>
         <div class="col-lg-5 col-md-12 col-12 col-sm-12">
-            <div class="card mb-3 myRow">
+            <div class="card mb-3 ">
                 <div class="row ">
                     <div class="card-body">
-                        <h5 class="card-title ps-1">Recent Categories<div class="float-end h6 ">
-                                <a href="#" class="seeAll pe-1">See all</a>
+                        <h5 class="card-title ps-1 headingFonts">Categories<div class="float-end h6 ">
+                                <a routerLink="/categories"  class="seeAll pe-1">See all</a>
                             </div>
                         </h5>
 
                         <p class="card-text ">
 
                             <div class="box">
-                                <div class="card mb-3" *ngFor="let c of categories">
+                                <div class="card mb-3 categoryCards" *ngFor="let c of categories">
                                     <div class="row">
-                                        <div class="col-4">
+                                        <div class="col-4 px-3 py-3">
                                             <img src="{{c.categoryLogo}}" alt="Category Logo"
                                                 class="img-fluid">
                                         </div>
@@ -156,6 +156,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <hr>
                                 </div>
 
                             </div>
@@ -172,17 +173,17 @@
             <div class="card mb-3 myRow">
                 <div class="row">
                     <div class="card-body">
-                        <h5 class="card-title ps-1">Recent Courses <div class="float-end h6">
-                                <a href="#" class="seeAll pe-1">See all</a>
+                        <h5 class="card-title ps-1 headingFonts">Courses <div class="float-end h6">
+                                <a routerLink="/courses" class="seeAll pe-1">See all</a>
                             </div>
                         </h5>
                         <p class="card-text">
 
                             <div class="box">
-                                <div class="card mb-3" *ngFor="let co of courses">
+                                <div class="card mb-3 categoryCards" *ngFor="let co of courses">
                                     <div class="row">
-                                        <div class="col-4">
-                                            <img  src="{{co.courseLogo}}" alt="Course Logo">
+                                        <div class="col-4 px-3 py-3">
+                                            <img  src="{{co.courseLogo}}" alt="Course Logo" class="img-fluid">
                                         </div>
                                         <div class="col-md-8">
                                             <div class="card-body">
@@ -195,6 +196,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <hr>
                                 </div>
                             </div>
                     </div>

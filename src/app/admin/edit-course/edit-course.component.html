@@ -1,1 +1,34 @@
-<p>edit-course works!</p>
+<div class="container-fluid myFonts">
+        <div class="row cat">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-10">
+                        <form [formGroup]="editCourseForm">
+                                <input type="hidden" formControlName="courseId"  >
+                               Selected Category: <input type="text" formControlName="categoryId">
+                                <br>
+                                <br>
+                                CourseName: <input type="text" formControlName="courseName">
+                                
+                                <br>
+                                <br>
+                                Course-Description: <textarea rows="5" cols="10" formControlName="courseDesc" ></textarea>
+                                <br>
+                                <br>
+                                <input type="text" formControlName="oldcourseLogo"  >
+                                <br><br>
+                                Course-Image: <input type="file" multiple accept="image/*" formControlName="courseLogo">
+                                <br>
+                                <br>
+                                Course-Price: <input type="number" formControlName="coursePrice">
+                                <br>
+                                <br>
+                               <input type="hidden"  formControlName="likes">
+                               
+                             
+                              
+                               
+                                <input type="submit" value="Update" (click)="updateCourse()">
+                            </form>
+                </div>
+        </div>
+ </div>

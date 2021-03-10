@@ -1,1 +1,31 @@
-<p>add-video works!</p>
+<div class="container-fluid myFonts">
+    <div class="row cat">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-10">
+                    <form [formGroup]="videoForm">
+                           Select Course: <select formControlName="courseId">
+                                   
+                                            <option *ngFor="let c of courses" [ngValue]="c.courseId" (click)="selectedCourse(c.courseId)">{{ c.courseName }}</option>
+                                        
+                            </select>
+                            <br>
+                            <br>
+                           VideoName: <input type="text" formControlName="videoName">
+                            
+                            <br>
+                            <br>
+                            Video-Description: <textarea rows="5" cols="10" formControlName="videoDesc" ></textarea>
+                            <br>
+                            <br>
+                            Video-Path: <input type="file" multiple accept="video/*" formControlName="videoPath">
+                            <br>
+                            <br>
+                           
+                         
+                          
+                           
+                            <input type="submit" value="Add" (click) = "addVideo()">
+                        </form>
+            </div>
+    </div>
+</div>
