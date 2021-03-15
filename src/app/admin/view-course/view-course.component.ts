@@ -3,6 +3,9 @@ import { Observable } from 'rxjs';
 import { AdminService } from 'src/app/admin.service';
 import { asLiteral } from '@angular/compiler/src/render3/view/util';
 import { Router } from '@angular/router';
+import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
+import { MatDialog } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-view-course',
@@ -19,8 +22,8 @@ export class ViewCourseComponent implements OnInit {
   catName:any
 
   search=""
- 
-  constructor(private as: AdminService,private router:Router) { 
+  
+  constructor(private as: AdminService,private router:Router,public dialog: MatDialog) { 
   }
   
   
@@ -57,7 +60,7 @@ export class ViewCourseComponent implements OnInit {
 
    this.coursesByCatCount=this.coursesByCat.length
    if(this.coursesByCat.length==0){
-    this.catName="No Course"
+    this.catName="No course in given category"
    }
  
    this.catName=this.coursesByCat[0].category
@@ -73,16 +76,24 @@ export class ViewCourseComponent implements OnInit {
       }
     
       deleteCourse(id: number){
+        let dialogref=  this.dialog.open(DialogBoxComponent, {
+          width: '250px',
+          data: {id:id}
+        });
+        dialogref.afterClosed().subscribe((result: boolean | null | undefined)=>{
+          if(result!=undefined && result!=null && result==true)
+          {
          this.as.deleteCourse(id).subscribe((data)=> 
          {
            console.log("successfully deleted...");
            this.getLocalCourses();
            this.router.navigate(['/courses'])
            
-         }
-         )
-        
-      }
+         })
+        }
+      })
+        }
+
 
       getLocalCourses(){
         this.as.getCourses()

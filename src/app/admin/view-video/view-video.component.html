@@ -2,14 +2,14 @@
 <div class="container-fluid myFonts">
     <div class="row float-end">
         <div class="col-lg-12">
-            <a class="btn btn-primary myBtn" routerLink="/add-course">Add Video</a>
+            <a class="btn btn-primary myBtn" routerLink="/add-video"><i class="fas fa-plus pe-2"></i>New Video</a>
           </div>
     </div>
 <div class="container myFonts">
 
     <!-- <div class="col-lg-4"><input type="text" name="search"  (ngModelChange)="getcourse($event)"  [(ngModel)]="search"></div> -->
    
-<div class="row">
+<div class="row my-4">
     <div class="col-lg-2"></div>
    
     <div class="col-lg-3">
@@ -57,17 +57,24 @@
         <div class="card mb-3 myRow">
             <div class="row">
                 <div class="card-body">
-                    <h5 class="card-title ps-1 headingFonts">Videos 
-                    </h5>
+                        <h5 class="card-title ps-1 headingFonts" *ngIf="!courseName">All Videos</h5>
+                        <h5 class="card-title ps-1 headingFonts" *ngIf="courseName">{{courseName}} <div class="float-end  seeAll pe-2">
+                          ({{videosByCourseCount}}) Videos
+                        </div>
+                        </h5>
+                   
                     <p class="card-text">
 
                         <div class="box">
+                                <div class="px-5 text-center py-5"  *ngIf="videoByCourse.length==0">
+                                        No Videos Found!!!
+                                    </div>
                             <div class="card mb-3 videoCards" *ngFor="let vc of videoByCourse">
                                 <div class="row">
-                                    <div class="col-4 px-3 py-3">
-                                        <video src="{{vc.videoPath}}" width="200px" height="250px" controls></video>
+                                    <div class="col-12 col-lg-4 ">
+                                        <video src="{{vc.videoPath}}" width="150px" height="90px" controls></video>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-6">
                                         <div class="card-body">
                                             <h5 class="card-title">{{vc.videoName | titlecase}}</h5>
                                             <p class="card-text">{{vc.videoDesc}}
@@ -80,9 +87,9 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-2">
-                                            <a  class="btn btn-primary my-4 "  (click) = "editVideo(vc.videoId)" ><i class="far fa-edit"></i></a><br>
-                                            <a  class="btn btn-danger my-3"  (click) = "deleteVideo(vc.videoId)"><i class="far fa-trash-alt"></i></a>
+                                    <div class="col-lg-2 col-4">
+                                            <a  class="btn btn-primary my-2 "  (click) = "editVideo(vc.videoId)" ><i class="far fa-edit"></i></a><br>
+                                            <a  class="btn btn-danger my-2"  (click) = "deleteVideo(vc.videoId)"><i class="far fa-trash-alt"></i></a>
                                     </div>
                                 </div>
                                 <hr>

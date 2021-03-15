@@ -11,7 +11,9 @@ import { Router } from '@angular/router';
 export class AddCourseComponent implements OnInit {
 
   categories: any
+  path!: String;
   courseForm!: FormGroup;
+  url: any;
   constructor(private as: AdminService,private router:Router) { }
 
   ngOnInit(): void {
@@ -25,7 +27,7 @@ export class AddCourseComponent implements OnInit {
       likes:new FormControl(0)
 
     })
-    
+
     this.as.getCategories()
     .subscribe((data)=>{
       
@@ -44,6 +46,12 @@ export class AddCourseComponent implements OnInit {
 
   addCourse(){
     console.log(this.courseForm.value)
+
+     //remove fakepath from image url
+    //ASSUMPTION: SELECT IMAGE FROM ASSETS ONLY!
+    this.path=this.courseForm.value.courseLogo
+    this.courseForm.value.courseLogo = this.path.replace(/^.*\\/, "../../../assets/")
+
     this.as.addCourse(this.courseForm.value.courseName, this.courseForm.value.courseDesc,this.courseForm.value.courseLogo, this.courseForm.value.coursePrice, this.courseForm.value.likes, this.courseForm.value.categoryId).subscribe((data)=>{
       this.router.navigate(['/courses'])
     })
@@ -52,6 +60,16 @@ export class AddCourseComponent implements OnInit {
   selectedCategory(catId: any){
     console.log(catId);
     
+  }
+
+  readUrl(event:any) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.onload = (event: ProgressEvent) => {
+        this.url = (<FileReader>event.target).result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
   }
 
  

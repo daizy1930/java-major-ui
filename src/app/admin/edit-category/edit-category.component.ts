@@ -14,6 +14,9 @@ export class EditCategoryComponent implements OnInit {
   categoryById:any
   editCategoryForm!: FormGroup;
   uploadForm: any;
+  path: any;
+  abc:any
+  url!: string | ArrayBuffer | null;
   constructor(private route:ActivatedRoute,private as:AdminService,private router:Router) {
     
    }
@@ -35,6 +38,7 @@ export class EditCategoryComponent implements OnInit {
         oldcategoryLogo:new FormControl({value:this.categoryById.categoryLogo, disabled:true}),
        categoryLogo:new FormControl('',[Validators.required])
       })
+      this.abc=this.categoryById.categoryLogo
     
     },
     error => console.log(error));
@@ -43,7 +47,11 @@ export class EditCategoryComponent implements OnInit {
 
  
   updateCategory(){
-    console.log(this.editCategoryForm.value.categoryLogo);
+    // console.log(this.editCategoryForm.value.categoryLogo);
+     //remove fakepath from image url
+    //ASSUMPTION: SELECT IMAGE FROM ASSETS ONLY!
+    this.path=this.editCategoryForm.value.categoryLogo
+    this.editCategoryForm.value.categoryLogo = this.path.replace(/^.*\\/, "../../../assets/")
     this.as.editCategory(this.editCategoryForm.value.categoryName, this.editCategoryForm.value.categoryDesc,this.editCategoryForm.value.categoryLogo,this.editCategoryForm.value.categoryId).subscribe((data)=>{
       console.log(data);
       
@@ -65,6 +73,16 @@ export class EditCategoryComponent implements OnInit {
       
     })
     
+  }
+
+  readUrl(event:any) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.onload = (event: ProgressEvent) => {
+        this.url = (<FileReader>event.target).result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
   }
 
   

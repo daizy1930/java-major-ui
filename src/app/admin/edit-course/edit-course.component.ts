@@ -1,7 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Renderer2, ElementRef, OnInit,ViewChild, AfterViewInit, Directive } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/admin.service';
 import { Router, ActivatedRoute } from '@angular/router';
+
+
+
+
+@Directive({selector: 'HTMLElement'})
+class HTMLElement {
+}
 
 @Component({
   selector: 'app-edit-course',
@@ -9,6 +16,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./edit-course.component.scss']
 })
 export class EditCourseComponent implements OnInit {
+  
  
   id:any
   courseById:any
@@ -17,7 +25,11 @@ export class EditCourseComponent implements OnInit {
   cat_name:any
   categories:any
   courses:any
-  constructor(private as: AdminService, private router:Router,private route:ActivatedRoute ) { }
+  abc:any
+  url!: string | ArrayBuffer | null;
+  path: any;
+ 
+  constructor(private as: AdminService, private router:Router,private route:ActivatedRoute,private renderer : Renderer2 ) { }
 
   ngOnInit(): void {
     console.log(this.id = this.route.snapshot.params['id']);
@@ -47,18 +59,40 @@ export class EditCourseComponent implements OnInit {
        courseLogo:new FormControl('',[Validators.required])
       })
 
-    
-        
-      
-    
+      this.abc=this.courseById.courseLogo
+   
     },
     error => console.log(error));
   }
+  // @ViewChild('demo')
+  // myElement!: HTMLElement;
+  // logoUpdate(event: any){
+  //   console.log("hello");
+    
+  //   // @ViewChild('demo') myElement: HTMLElement
+    
+  //   this.abc=document.querySelector('#demo')
+  //   this.abc.setStyle({"color":"red"})
+  //   //alert(this.abc)
+  // }
+
+  // ngAfterViewInit(): void {
+  //   // this.renderer.setStyle(this.myElement, "color", "red");
+  //   // alert(this.myElement)
+    
+  //   // this.myElement.setAttribute("color","red")
+  // }
+
+
+
 
 
 
   updateCourse(){
-
+    //remove fakepath from image url
+    //ASSUMPTION: SELECT IMAGE FROM ASSETS ONLY!
+    this.path=this.editCourseForm.value.courseLogo
+    this.editCourseForm.value.courseLogo = this.path.replace(/^.*\\/, "../../../assets/")
     this.as.editCourse(this.editCourseForm.value.courseId,this.editCourseForm.value.courseName,this.editCourseForm.value.courseDesc,this.editCourseForm.value.courseLogo,this.editCourseForm.value.coursePrice,this.editCourseForm.value.likes,this.cat_name).subscribe((data)=>{
       console.log("Successfully Updated!");
 
@@ -72,6 +106,17 @@ export class EditCourseComponent implements OnInit {
     },(err)=>{
       console.log('Error is:',err);}
     )
+  }
+
+
+  readUrl(event:any) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.onload = (event: ProgressEvent) => {
+        this.url = (<FileReader>event.target).result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
   }
 
 

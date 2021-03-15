@@ -18,6 +18,9 @@ export class EditVideoComponent implements OnInit {
   courses:any
  videos:any
  course_name: any
+  url!: string | ArrayBuffer | null;
+  path: any;
+  abc: any;
   constructor(private as: AdminService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -47,11 +50,7 @@ export class EditVideoComponent implements OnInit {
         oldvideoPath:new FormControl({value:this.videoById.videoPath, disabled:true}),
        videoPath:new FormControl('',[Validators.required])
       })
-
-    
-        
-      
-    
+      this.abc=this.videoById.videoPath
     },
     error => console.log(error));
   }
@@ -59,6 +58,10 @@ export class EditVideoComponent implements OnInit {
 
 
   updateVideo(){
+    //remove fakepath from image url
+    //ASSUMPTION: SELECT IMAGE FROM ASSETS ONLY!
+    this.path=this.editVideoForm.value.videoPath
+    this.editVideoForm.value.videoPath = this.path.replace(/^.*\\/, "../../../assets/")
     this.as.editVideo(this.editVideoForm.value.videoId,this.editVideoForm.value.videoName,this.editVideoForm.value.videoDesc,this.editVideoForm.value.videoPath,this.course_name).subscribe((data)=>{
       console.log("SUCCESSFULLY UPDATED!");
       this.as.getVideos().subscribe((data)=>{
@@ -71,6 +74,16 @@ export class EditVideoComponent implements OnInit {
     },(err)=>{
       console.log('Error is:',err);}
     )
+  }
+
+  readUrl(event:any) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.onload = (event: ProgressEvent) => {
+        this.url = (<FileReader>event.target).result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
   }
 
 }

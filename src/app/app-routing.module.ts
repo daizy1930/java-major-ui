@@ -10,6 +10,8 @@ import { AddVideoComponent } from './admin/add-video/add-video.component';
 import { EditCategoryComponent } from './admin/edit-category/edit-category.component';
 import { EditCourseComponent } from './admin/edit-course/edit-course.component';
 import { EditVideoComponent } from './admin/edit-video/edit-video.component';
+import { ViewUserComponent } from './admin/view-user/view-user.component';
+import { LockedUserNotificationComponent } from './admin/locked-user-notification/locked-user-notification.component';
 
 const routes: Routes = [
   {path: '', component: AdminDashboardComponent },
@@ -22,6 +24,8 @@ const routes: Routes = [
   {path: 'videos', component: ViewVideoComponent},
   {path: 'edit-video/:id', component: EditVideoComponent},
   {path: 'add-video', component: AddVideoComponent},
+  {path: 'users', component: ViewUserComponent},
+  {path:'locked-notification',component:LockedUserNotificationComponent}
 
 ];
 @NgModule({

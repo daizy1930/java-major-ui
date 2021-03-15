@@ -97,6 +97,12 @@ export class AdminService {
     return this.http.put<any>(environment.baseVideoUrl+"/"+videoId+"/"+courseId,{videoName,videoDesc,videoId,videoPath,courseId})
   }
 
+  getUsers(): Observable<any> {
+    console.log(environment.baseUserUrl)
+    return this.http.get<any>(environment.baseUserUrl);
+  }
+ 
+
 
 
 

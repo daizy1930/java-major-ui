@@ -11,6 +11,9 @@ import { Router } from '@angular/router';
 export class AddVideoComponent implements OnInit {
   courses: any
   videoForm!: FormGroup;
+  url: any;
+  path: any;
+  
   constructor(private as: AdminService,private router:Router) { }
 
   ngOnInit(): void {
@@ -44,9 +47,13 @@ export class AddVideoComponent implements OnInit {
 
 addVideo(){
   console.log(this.videoForm.value)
+
+   //remove fakepath from image url
+    //ASSUMPTION: SELECT IMAGE FROM ASSETS ONLY!
+    this.path=this.videoForm.value.videoPath
+    this.videoForm.value.videoPath = this.path.replace(/^.*\\/, "../../../assets/")
+
   this.as.addVideo(this.videoForm.value.videoName, this.videoForm.value.videoDesc,this.videoForm.value.videoPath,  this.videoForm.value.courseId).subscribe((data)=>{
-
-
     this.router.navigate(['/videos'])
 
 
@@ -58,8 +65,14 @@ selectedCourse(courseId: any){
   
 }
 
-
-
-
+readUrl(event:any) {
+  if (event.target.files && event.target.files[0]) {
+    var reader = new FileReader();
+    reader.onload = (event: ProgressEvent) => {
+      this.url = (<FileReader>event.target).result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
+  }
+}
 
 }

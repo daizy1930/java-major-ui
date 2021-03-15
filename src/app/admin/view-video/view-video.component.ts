@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/admin.service';
+import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-view-video',
@@ -12,7 +14,9 @@ export class ViewVideoComponent implements OnInit {
   videos: any
   videoByCourse: any
   courses: any
-  constructor(private as: AdminService,private router:Router) { }
+  courseName: any
+  videosByCourseCount: any
+  constructor(private as: AdminService,private router:Router,public dialog: MatDialog) { }
 
   ngOnInit(): void {
 
@@ -36,6 +40,12 @@ export class ViewVideoComponent implements OnInit {
     console.log(uniqueCourse);
    this.videoByCourse=this.videos.filter((x:any)=>{return x.course==uniqueCourse});
    console.log(this.videoByCourse);
+
+   this.videosByCourseCount = this.videoByCourse.length
+   if(this.videoByCourse.length == 0){
+     this.courseName = "No videos in given course"
+   }
+   this.courseName = this.videoByCourse[0].course
    
        }
 
@@ -47,6 +57,13 @@ export class ViewVideoComponent implements OnInit {
       }
     
       deleteVideo(id: number){
+        let dialogref=  this.dialog.open(DialogBoxComponent, {
+          width: '250px',
+          data: {id:id}
+        });
+        dialogref.afterClosed().subscribe((result: boolean | null | undefined)=>{
+          if(result!=undefined && result!=null && result==true)
+          {
          this.as.deleteVideo(id).subscribe((data)=> 
          {
            console.log("successfully deleted...");
@@ -55,6 +72,9 @@ export class ViewVideoComponent implements OnInit {
            
          }
          )
+
+        }
+      })
         
       }
   getLocalVideos(){
@@ -65,7 +85,7 @@ export class ViewVideoComponent implements OnInit {
           this.videos=data;
           this.videoByCourse=this.videos;
           console.log(this.videos);
-           console.log("glfjkdsghlgkjds");
+           console.log("glfsdfg");
           
         },
         (err)=>{

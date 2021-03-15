@@ -17,6 +17,11 @@ import { EditCategoryComponent } from './edit-category/edit-category.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DialogBoxComponent } from './dialog-box/dialog-box.component';
+import { MaterialModule } from '../material/material.module';
+import { ViewUserComponent } from './view-user/view-user.component';
+import { LockedUserNotificationComponent } from './locked-user-notification/locked-user-notification.component';
+
 
 
 const routes: Routes = [
@@ -26,13 +31,13 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [AdminHeaderComponent, AdminFooterComponent, AdminSidebarComponent, UserLogComponent, ReportsComponent, ViewCourseComponent, AddCourseComponent, ViewCategoryComponent, AddCategoryComponent, AddVideoComponent, ViewVideoComponent, EditVideoComponent, EditCourseComponent, EditCategoryComponent, AdminDashboardComponent],
+  declarations: [AdminHeaderComponent, AdminFooterComponent, AdminSidebarComponent, UserLogComponent, ReportsComponent, ViewCourseComponent, AddCourseComponent, ViewCategoryComponent, AddCategoryComponent, AddVideoComponent, ViewVideoComponent, EditVideoComponent, EditCourseComponent, EditCategoryComponent, AdminDashboardComponent, DialogBoxComponent, ViewUserComponent, LockedUserNotificationComponent],
   imports: [
     CommonModule, 
     RouterModule.forRoot(routes),
-    FormsModule
-,
-ReactiveFormsModule  ],
-  exports: [AdminHeaderComponent, AdminFooterComponent, AdminSidebarComponent, AddCategoryComponent, AddCourseComponent, AddVideoComponent, ViewCategoryComponent, ViewCourseComponent, ViewVideoComponent, EditCategoryComponent, EditCourseComponent, EditVideoComponent, ReportsComponent, UserLogComponent, AdminDashboardComponent,RouterModule]
+    FormsModule,
+    MaterialModule,
+  ReactiveFormsModule  ],
+  exports: [AdminHeaderComponent, AdminFooterComponent, AdminSidebarComponent, AddCategoryComponent, AddCourseComponent, AddVideoComponent, ViewCategoryComponent, ViewCourseComponent, ViewVideoComponent, EditCategoryComponent, EditCourseComponent, EditVideoComponent, ReportsComponent, UserLogComponent, AdminDashboardComponent,RouterModule, DialogBoxComponent,ViewUserComponent]
 })
 export class AdminModule { }
