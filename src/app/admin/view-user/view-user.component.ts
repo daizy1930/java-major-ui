@@ -17,7 +17,7 @@ export class ViewUserComponent implements OnInit {
   searchInput!: string
   userBySearch: any;
   filteredArray: any[] = []
-  defaultRecords: any = 2;
+  defaultRecords: any = 5;
 
   constructor(private as: AdminService, private router: Router) {
    

@@ -89,9 +89,6 @@ export class AdminService {
   return this.http.delete<any>(environment.baseVideoUrl+"/"+id);
 }
 
-
-
-
  editVideo(videoId:any,videoName: any,videoDesc: any,videoPath:any,courseId: any):Observable<any>{
     // console.log(category);   
     return this.http.put<any>(environment.baseVideoUrl+"/"+videoId+"/"+courseId,{videoName,videoDesc,videoId,videoPath,courseId})
@@ -100,6 +97,16 @@ export class AdminService {
   getUsers(): Observable<any> {
     console.log(environment.baseUserUrl)
     return this.http.get<any>(environment.baseUserUrl);
+  }
+
+  unlockUserById(userId:any){
+    console.log(userId);
+    return this.http.put<any>(environment.baseUserUrl+"/unlockuser/"+userId, {userId})
+  }
+
+
+  getLockedUsers(): Observable<any>{
+    return this.http.get<any>(environment.baseUserUrl+"/lockedusers")
   }
  
 
