@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatDialogModule} from '@angular/material/dialog';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatPaginatorModule, PageEvent} from '@angular/material/paginator';
 
 
 
 const materialComponents = [
-  MatDialogModule]
+  MatDialogModule,
+MatPaginatorModule]
 
 @NgModule({
   declarations: [],

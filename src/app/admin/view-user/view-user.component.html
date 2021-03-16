@@ -20,12 +20,12 @@
 
                         <th>Status</th>
 
-                        <th>Locked/Unlocked</th>
+                        <th>Locked / Unlocked</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <ng-container *ngIf=' searchInput==null ||searchInput == "" '>
-                        <tr *ngFor="let u of users , let i = index">
+                       
+                        <tr *ngFor="let u of filteredArray, let i = index">
                             <td>{{i+1}}</td>
                             <td>
                                 {{u.username}}
@@ -37,7 +37,13 @@
                                 {{u.role}}
                             </td>
                             <td>
-                                {{u.activated}}
+                                <!-- <button class="badge badge-success">{{u.activated}}</button> -->
+                                <ng-container *ngIf="u.activated == 1">
+                                    <span class="badge bg-success">Active</span>
+                                </ng-container>
+                                <ng-container *ngIf="u.activated == 0">
+                                    <span class="badge bg-danger">Inactive</span>
+                                </ng-container>                              
                             </td>
                             <td *ngIf="u.locked==1">
                                 <button class="btn lockColor"> <i class="fas fa-lock "></i></button>
@@ -46,39 +52,17 @@
                                 <button class="btn btn-secondary"> <i class="fas fa-lock-open "></i></button>
                             </td>
                         </tr>
-                    </ng-container>
-
-
-                    <ng-container *ngIf='searchInput  != null && searchInput != "" '>
-                        <tr *ngFor="let u of userBySearch, let i = index">
-                            <td>{{i+1}}</td>
-                            <td>
-                                {{u.username}}
-                            </td>
-                            <td>
-                                {{u.email}}
-                            </td>
-                            <td>
-                                {{u.role}}
-                            </td>
-                            <td>
-                                {{u.activated}}
-                            </td>
-                            <td *ngIf="u.locked==1">
-                                <button class="btn lockColor"> <i class="fas fa-lock "></i></button>
-                            </td>
-                            <td *ngIf="u.locked==0">
-                                <button class="btn btn-secondary"> <i class="fas fa-lock-open "></i></button>
-                            </td>
-                        </tr>
-                    </ng-container>
+                     
+                   
 
                 </tbody>
-                <!-- FOR SEARCH -->
-
-
-
+          
             </table>
         </div>
     </div>
 </div>
+
+
+<mat-paginator [length]="users.length" [pageSize]="defaultRecords" [pageSizeOptions]="[ (users.length-4),(users.length-6)]" (page)="pageEvent = $event; onPaginateChange($event)">
+       
+</mat-paginator>

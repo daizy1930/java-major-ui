@@ -4,7 +4,7 @@
     
             <div class="col-lg-4">
                 
-                <input type="text" name="search" (ngModelChange)="searchUsers($event)" [(ngModel)]="searchInput">
+                <input type="text" name="search" (ngModelChange)="searchUsers($event)" [(ngModel)]="searchInput" placeholder="Search by username">
             </div>
     
         </div>
@@ -15,7 +15,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Sr NO.</th>
+                            <th>Sr No.</th>
                             <th>UserName</th>
                             <th>Email</th>
     
@@ -41,7 +41,13 @@
                                     {{u.role}}
                                 </td>
                                 <td>
-                                    {{u.activated}}
+                                        <ng-container *ngIf="u.activated == 1">
+                                                <span class="badge bg-success">Active</span>
+                                            </ng-container>
+                                            <ng-container *ngIf="u.activated == 0">
+                                                    <span class="badge bg-danger">Inactive</span>
+                                                </ng-container>
+                                   
                                 </td>
                                 <td *ngIf="u.locked==1">
                                     <button class="btn lockColor"> <i class="fas fa-lock "></i></button>
