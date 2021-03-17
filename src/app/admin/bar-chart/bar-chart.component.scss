@@ -6,20 +6,17 @@ $font-faimily: gotham-rounded,helvetica neue,helvetica !important;
   font-family: $font-faimily;
   color:$font-color;
 }
-
-
-.lockColor{
-background-color: lighten($theme-color,30);
-color:$font-color;
-}
-.tableBox{
-  background-color: white;
+.chartBox{
+    background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
     border-radius: 5px;
     color: $font-color;
 }
-.pagination{
-  background-color: $theme-color;
-  // color: black;
-
+.headingFonts{
+    color:$theme-color;
 }
+.myBtn{
+    background-color: $theme-color;
+    border: 1px $theme-color;
+    color: white;
+  }

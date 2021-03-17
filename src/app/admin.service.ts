@@ -109,6 +109,9 @@ export class AdminService {
     return this.http.get<any>(environment.baseUserUrl+"/lockedusers")
   }
  
+  // getCourseState(): Observable<any> {
+  //   return this.http.get<any>('http://localhost:9000/admin/coursereports')
+  // }
 
 
 

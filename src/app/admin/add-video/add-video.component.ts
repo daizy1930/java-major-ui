@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/admin.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,10 +19,10 @@ export class AddVideoComponent implements OnInit {
   ngOnInit(): void {
 
     this.videoForm = new FormGroup({
-      courseId: new FormControl(),
-     videoName: new FormControl(),
-     videoDesc: new FormControl(),
-     videoPath:new FormControl()
+      courseId: new FormControl('', [Validators.required]),
+     videoName: new FormControl('', [Validators.required, Validators.minLength(5)]),
+     videoDesc: new FormControl('', [Validators.required, Validators.minLength(10)]),
+     videoPath:new FormControl('', [Validators.required])
   })
   this.as.getCourses()
   .subscribe((data)=>{

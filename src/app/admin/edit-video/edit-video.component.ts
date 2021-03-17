@@ -43,8 +43,8 @@ export class EditVideoComponent implements OnInit {
       
       this.editVideoForm = new FormGroup({
         videoId: new FormControl(this.videoById.videoId),
-        videoName: new FormControl(this.videoById.videoName),
-       videoDesc: new FormControl(this.videoById.videoDesc),
+        videoName: new FormControl(this.videoById.videoName, [Validators.required, Validators.minLength(5)]),
+       videoDesc: new FormControl(this.videoById.videoDesc, [Validators.required, Validators.minLength(10)]),
       courseId: new FormControl({ value: this.videoById.course, disabled:true}),
       courseName: new FormControl(this.course_name),
         oldvideoPath:new FormControl({value:this.videoById.videoPath, disabled:true}),

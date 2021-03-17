@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl,Validators } from '@angular/forms';
 import { AdminService } from 'src/app/admin.service';
 import { Router } from '@angular/router';
 
@@ -16,9 +16,9 @@ export class AddCategoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoryForm = new FormGroup({
-      categoryName: new FormControl(),
-     categoryDesc: new FormControl(),
-     categoryLogo:new FormControl(),
+      categoryName: new FormControl('', [Validators.required, Validators.minLength(5)]),
+     categoryDesc: new FormControl('', [Validators.required, Validators.minLength(10)]),
+     categoryLogo:new FormControl('', [Validators.required]),
     })
   }
 

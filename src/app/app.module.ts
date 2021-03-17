@@ -11,6 +11,7 @@ import { MaterialModule } from './material/material.module';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -19,7 +20,11 @@ import { MaterialModule } from './material/material.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AdminModule,HttpClientModule,ReactiveFormsModule, NoopAnimationsModule,MaterialModule
+    AdminModule,
+    HttpClientModule,
+    ReactiveFormsModule, 
+    NoopAnimationsModule,
+    MaterialModule
    
   ],
   providers: [],

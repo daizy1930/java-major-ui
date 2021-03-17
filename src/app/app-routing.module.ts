@@ -12,6 +12,10 @@ import { EditCourseComponent } from './admin/edit-course/edit-course.component';
 import { EditVideoComponent } from './admin/edit-video/edit-video.component';
 import { ViewUserComponent } from './admin/view-user/view-user.component';
 import { LockedUserNotificationComponent } from './admin/locked-user-notification/locked-user-notification.component';
+import { ReportsComponent } from './admin/reports/reports.component';
+import { BarChartComponent } from './admin/bar-chart/bar-chart.component';
+import { LineChartComponent } from './admin/line-chart/line-chart.component';
+import { PieChartComponent } from './admin/pie-chart/pie-chart.component';
 
 const routes: Routes = [
   {path: '', component: AdminDashboardComponent },
@@ -25,7 +29,11 @@ const routes: Routes = [
   {path: 'edit-video/:id', component: EditVideoComponent},
   {path: 'add-video', component: AddVideoComponent},
   {path: 'users', component: ViewUserComponent},
-  {path:'locked-notification',component:LockedUserNotificationComponent}
+  {path: 'locked-notification', component: LockedUserNotificationComponent},
+  {path: 'reports', component: ReportsComponent},
+  {path: 'bar-chart', component: BarChartComponent},
+  {path: 'line-chart', component: LineChartComponent},
+  {path: 'pie-chart', component: PieChartComponent}
 
 ];
 @NgModule({

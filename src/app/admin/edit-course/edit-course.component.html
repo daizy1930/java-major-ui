@@ -20,12 +20,14 @@
 
                                                 <div class="row">
                                                         <div class="col-lg-2">Course Name:</div>
-                                                        <div class="col-lg-8"><input type="text" formControlName="courseName" class="form-control"></div>
+                                                        <div class="col-lg-8"><input type="text" formControlName="courseName" class="form-control">
+                                                                <div *ngIf="editCourseForm.controls.courseName?.invalid && editCourseForm.controls.courseName?.touched" [ngStyle]="{'color' : 'red'}"required>Please enter valid Course-Name</div></div>
                                                 </div><br>
                                                 
                                                 <div class="row">
                                                         <div class="col-lg-2">Course Description:</div>
-                                                        <div class="col-lg-8"><textarea rows="5" cols="10" formControlName="courseDesc" class="form-control"></textarea></div>
+                                                        <div class="col-lg-8"><textarea rows="5" cols="10" formControlName="courseDesc" class="form-control"></textarea>
+                                                                <div *ngIf="editCourseForm.controls.courseName?.invalid && editCourseForm.controls.courseName?.touched" [ngStyle]="{'color' : 'red'}"required>Please enter 10 characters at minimum</div></div>
                                                 </div>  <br>
                                                 
 
@@ -39,14 +41,16 @@
                                                                         <div class="col-lg-2">Previous Image:</div>
                                                                         <div class="col-lg-2"><div class="imgPreview"><img [src]="abc" class="img-fluid" alt="none selected" ></div></div>
                                                                         <div class="col-lg-2">Updated Image:</div>
-                                                                        <div class="col-lg-2 "> <div class="imgPreview"><img [src]="url" class="img-fluid" alt="none selected"></div></div>
+                                                                        <div class="col-lg-2 "> <div class="imgPreview"><img [src]="url" class="img-fluid" alt="none selected"></div>
+                                                                        <div *ngIf="editCourseForm.controls.courseLogo?.invalid && editCourseForm.controls.courseLogo?.touched" [ngStyle]="{'color' : 'red'}"required>Please select valid image file</div></div>
                                                         </div>
                                                        
                                                 </div><br>
 
                                                 <div class="row">
                                                                 <div class="col-lg-2">Course Price:</div>
-                                                                <div class="col-lg-8"><input type="number"  formControlName="coursePrice"  class="form-control"></div>
+                                                                <div class="col-lg-8"><input type="number"  formControlName="coursePrice"  class="form-control">
+                                                                        <div *ngIf="editCourseForm.controls.coursePrice?.invalid && editCourseForm.controls.coursePrice?.touched" [ngStyle]="{'color' : 'red'}"required>Please enter valid price for given course</div></div>
                                                 </div><br>
 
                                                 <div class="row">
@@ -56,7 +60,7 @@
                                                 
                                                 <div class="row ">
                                                         <div class="col-lg-2"></div>
-                                                        <div class="col-lg-8 "><input type="submit" value="Update course" class="btn btn-primary" (click) ="updateCourse()"></div>
+                                                        <div class="col-lg-8 "><input type="submit" value="Update course" class="btn btn-primary" (click) ="updateCourse()" [disabled]= "!editCourseForm.valid"></div>
                                                 </div>
                                                 
                                                 </form>

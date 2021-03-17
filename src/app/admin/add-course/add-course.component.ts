@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/admin.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,11 +19,11 @@ export class AddCourseComponent implements OnInit {
   ngOnInit(): void {
 
     this.courseForm = new FormGroup({
-      categoryId: new FormControl(),
-      courseName: new FormControl(),
-      courseDesc: new FormControl(),
-      courseLogo:new FormControl(),
-      coursePrice: new FormControl(),
+      categoryId: new FormControl('', [Validators.required]),
+      courseName: new FormControl('', [Validators.required, Validators.minLength(5)]),
+      courseDesc: new FormControl('', [Validators.required, Validators.minLength(10)]),
+      courseLogo:new FormControl('', [Validators.required]),
+      coursePrice: new FormControl('', [Validators.required, Validators.minLength(3)]),
       likes:new FormControl(0)
 
     })

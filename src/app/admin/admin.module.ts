@@ -16,29 +16,36 @@ import { EditCourseComponent } from './edit-course/edit-course.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule } from '@angular/forms';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 import { MaterialModule } from '../material/material.module';
 import { ViewUserComponent } from './view-user/view-user.component';
 import { LockedUserNotificationComponent } from './locked-user-notification/locked-user-notification.component';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { LineChartComponent } from './line-chart/line-chart.component';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 
 
 const routes: Routes = [
-  {path: '', component: AdminDashboardComponent },
+  // {path: '', component: AdminDashboardComponent },
 
 ];
 
 
 @NgModule({
-  declarations: [AdminHeaderComponent, AdminFooterComponent, AdminSidebarComponent, UserLogComponent, ReportsComponent, ViewCourseComponent, AddCourseComponent, ViewCategoryComponent, AddCategoryComponent, AddVideoComponent, ViewVideoComponent, EditVideoComponent, EditCourseComponent, EditCategoryComponent, AdminDashboardComponent, DialogBoxComponent, ViewUserComponent, LockedUserNotificationComponent],
+  declarations: [AdminHeaderComponent, AdminFooterComponent, AdminSidebarComponent, UserLogComponent, ReportsComponent, ViewCourseComponent, AddCourseComponent, ViewCategoryComponent, AddCategoryComponent, AddVideoComponent, ViewVideoComponent, EditVideoComponent, EditCourseComponent, EditCategoryComponent, AdminDashboardComponent, DialogBoxComponent, ViewUserComponent, LockedUserNotificationComponent, BarChartComponent, LineChartComponent, PieChartComponent],
   imports: [
     CommonModule, 
     RouterModule.forRoot(routes),
     FormsModule,
     MaterialModule,
-  ReactiveFormsModule  ],
-  exports: [AdminHeaderComponent, AdminFooterComponent, AdminSidebarComponent, AddCategoryComponent, AddCourseComponent, AddVideoComponent, ViewCategoryComponent, ViewCourseComponent, ViewVideoComponent, EditCategoryComponent, EditCourseComponent, EditVideoComponent, ReportsComponent, UserLogComponent, AdminDashboardComponent,RouterModule, DialogBoxComponent,ViewUserComponent]
+    ReactiveFormsModule,
+    ChartsModule
+ ],
+  exports: [AdminHeaderComponent, AdminFooterComponent, AdminSidebarComponent, AddCategoryComponent, AddCourseComponent, AddVideoComponent, ViewCategoryComponent, ViewCourseComponent, ViewVideoComponent, EditCategoryComponent, EditCourseComponent, EditVideoComponent, ReportsComponent, UserLogComponent, AdminDashboardComponent, RouterModule, DialogBoxComponent, ViewUserComponent, BarChartComponent, LineChartComponent, PieChartComponent]
 })
 export class AdminModule { }

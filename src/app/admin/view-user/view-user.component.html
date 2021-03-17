@@ -62,7 +62,13 @@
     </div>
 </div>
 
-
-<mat-paginator [length]="users.length" [pageSize]="defaultRecords" [pageSizeOptions]="[ (users.length-5),(users.length-10)]" (page)="pageEvent = $event; onPaginateChange($event)">
-       
-</mat-paginator>
+<div class="container">
+    <div class="row myFonts">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-11">
+            <mat-paginator class="pagination ms-4" [length]="users.length" [pageSize]="defaultRecords" [pageSizeOptions]="[ (users.length-5),(users.length-10)]" (page)="pageEvent = $event; onPaginateChange($event)">
+                
+            </mat-paginator>
+        </div>
+    </div>        
+</div>
