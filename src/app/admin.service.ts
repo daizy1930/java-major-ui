@@ -37,8 +37,8 @@ export class AdminService {
     return this.http.get<any>(environment.baseCourseUrl+"/total");
   }
   getUserCount(): Observable<any> {
-    console.log(environment.baseUsersUrl)
-    return this.http.get<any>(environment.baseUserUrl+"/usercount");
+    console.log(environment.baseAdminUrl)
+    return this.http.get<any>(environment.baseAdminUrl+"/usercount");
   }
 
   addCategory(categoryName: any, categoryDesc: any, categoryLogo:any):Observable<any>{
@@ -95,19 +95,19 @@ export class AdminService {
   }
 
   getUsers(): Observable<any> {
-    console.log(environment.baseUsersUrl)
-    return this.http.get<any>(environment.baseUsersUrl);
+    console.log(environment.baseAdminUrl)
+    return this.http.get<any>(environment.baseAdminUrl);
   }
 
   unlockUserById(userId:any){
     console.log(userId);
-    return this.http.put<any>(environment.baseUsersUrl+"/unlockuser/"+userId, {userId})
+    return this.http.put<any>(environment.baseAdminUrl+"/unlockuser/"+userId, {userId})
   }
 
 
   getLockedUsers(): Observable<any>{
-    console.log(environment.baseUsersUrl+"/lockedusers");
-    return this.http.get<any>(environment.baseUsersUrl+"/lockedusers")
+    console.log(environment.baseAdminUrl+"/lockedusers");
+    return this.http.get<any>(environment.baseAdminUrl+"/lockedusers")
     
     
   }
