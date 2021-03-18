@@ -26,6 +26,8 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { ChartsModule } from 'ng2-charts';
+import { CommentChartComponent } from './comment-chart/comment-chart.component';
+import { VideoChartComponent } from './video-chart/video-chart.component';
 
 
 
@@ -37,7 +39,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [AdminHeaderComponent, AdminFooterComponent, AdminSidebarComponent, UserLogComponent, ReportsComponent, ViewCourseComponent, AddCourseComponent, ViewCategoryComponent, AddCategoryComponent, AddVideoComponent, ViewVideoComponent, EditVideoComponent, EditCourseComponent, EditCategoryComponent, AdminDashboardComponent, DialogBoxComponent, ViewUserComponent, LockedUserNotificationComponent, BarChartComponent, LineChartComponent, PieChartComponent],
+  declarations: [AdminHeaderComponent, AdminFooterComponent, AdminSidebarComponent, UserLogComponent, ReportsComponent, ViewCourseComponent, AddCourseComponent, ViewCategoryComponent, AddCategoryComponent, AddVideoComponent, ViewVideoComponent, EditVideoComponent, EditCourseComponent, EditCategoryComponent, AdminDashboardComponent, DialogBoxComponent, ViewUserComponent, LockedUserNotificationComponent, BarChartComponent, LineChartComponent, PieChartComponent, CommentChartComponent, VideoChartComponent],
   imports: [
     CommonModule, 
     RouterModule.forRoot(routes),
@@ -46,6 +48,6 @@ const routes: Routes = [
     ReactiveFormsModule,
     ChartsModule
  ],
-  exports: [AdminHeaderComponent, AdminFooterComponent, AdminSidebarComponent, AddCategoryComponent, AddCourseComponent, AddVideoComponent, ViewCategoryComponent, ViewCourseComponent, ViewVideoComponent, EditCategoryComponent, EditCourseComponent, EditVideoComponent, ReportsComponent, UserLogComponent, AdminDashboardComponent, RouterModule, DialogBoxComponent, ViewUserComponent, BarChartComponent, LineChartComponent, PieChartComponent]
+  exports: [AdminHeaderComponent, AdminFooterComponent, AdminSidebarComponent, AddCategoryComponent, AddCourseComponent, AddVideoComponent, ViewCategoryComponent, ViewCourseComponent, ViewVideoComponent, EditCategoryComponent, EditCourseComponent, EditVideoComponent, ReportsComponent, UserLogComponent, AdminDashboardComponent, RouterModule, DialogBoxComponent, ViewUserComponent, BarChartComponent, LineChartComponent, PieChartComponent, CommentChartComponent, VideoChartComponent]
 })
 export class AdminModule { }

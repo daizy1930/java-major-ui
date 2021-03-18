@@ -8,7 +8,7 @@ import { AdminService } from 'src/app/admin.service';
   styleUrls: ['./admin-header.component.scss']
 })
 export class AdminHeaderComponent implements OnInit {
-  users: any;
+  users: Array<any>=[];
   len: any;
 
   constructor(private as: AdminService,private router:Router) { }
@@ -16,8 +16,12 @@ export class AdminHeaderComponent implements OnInit {
   ngOnInit(): void {
     this.as.getLockedUsers().subscribe((data) => {
       this.users = data;
-      console.log(this.users.length);
-      this.len=this.users.length
+      console.log(">>>",this.users);
+      console.log("Inside getLockedUSer");
+      console.log(Object.keys(this.users).length);
+      this.len=Object.keys(this.users).length;
+      console.log(">>>",this.users);
+      
     
     },
       (err) => {

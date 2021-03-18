@@ -1,49 +1,52 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import { AdminService } from 'src/app/admin.service';
+
 
 @Component({
   selector: 'app-line-chart',
   templateUrl: './line-chart.component.html',
   styleUrls: ['./line-chart.component.scss']
 })
-export class LineChartComponent  implements OnInit{
-  courseName : Array<string> = [];
+
+export class LineChartComponent implements OnInit {
+
+  courseName: Array<string> = [];
   avgrating = [];
   chooseCategory!: FormGroup;
   categories: any;
   courses: any;
   selectedCategory: any;
   coursesByCat: any;
-  lineChartData!: ChartDataSets[] ;
-  lineChartLabels!: Label[] ;
+
+
+  lineChartData!: ChartDataSets[];
+
+  lineChartLabels!: Label[];
+
   lineChartOptions = {
     responsive: true,
   };
+
   lineChartColors: Color[] = [
     {
       borderColor: 'black',
       backgroundColor: 'rgba(255,255,0,0.28)',
     },
   ];
+
   lineChartLegend = true;
   lineChartPlugins = [];
-  lineChartType : ChartType = 'line';
+  lineChartType: ChartType = 'line';
+  courseState: Array<any> = [];
   constructor(private as: AdminService) { }
-  ngOnInit(): void {
-    // this.as.getCourseState().subscribe((result)=>{
-    //   result.forEach(x => {
-    //     this.courseName.push(x.courseName)
-    //     this.avgrating.push(x.avgrating)
-    //   });
-    // })
-    // console.log(this.courseName);
-    // console.log(this.avgrating);
+  ngOnInit() {
     this.chooseCategory = new FormGroup({
       categoryName: new FormControl()
     })
+
     this.as.getCategories()
       .subscribe((data: any) => {
         this.categories = data;
@@ -51,29 +54,37 @@ export class LineChartComponent  implements OnInit{
         (err: any) => {
           console.log('Error is:', err);
         });
-    this.as.getCourses()
+
+    this.as.getCourseState()
       .subscribe((data: any) => {
         this.courses = data;
-        // console.log(this.courses); 
+        if (this.courses.length != 0)
+        this.getGraph();
       },
         (err: any) => {
           console.log('Error is:', err);
         });
   }
-  getCoursesByCat() {
-    // console.log("Inside getCoursesByCat");
-    let coursename: Array<string> = [];
-    let avgrating: Array<number> = [];
-    this.selectedCategory = this.chooseCategory.value.categoryName;
-    this.coursesByCat = this.courses.filter((x: any) => { return x.category == this.selectedCategory });
-    this.coursesByCat.forEach((element: { courseName: string; avgrating: number; }) => {
-      coursename.push(element.courseName);
-      avgrating.push(element.avgrating);
-    });
-    this.courseName = coursename;
+
+  getGraph() {
+    this.courseName = this.courses.map((data: { courseName: any; }) => data.courseName);
+    this.avgrating = this.courses.map((data: { avgrating: any; }) => data.avgrating);
     this.lineChartLabels = this.courseName;
-    this.lineChartData =  [
-      { data: this.avgrating, label: 'Ratings' },
-    ];
+    this.lineChartData = [{ data: this.avgrating, label: ' Ratings' }];
   }
+
+  getCoursesByCat(event: Event) {
+    this.selectedCategory = (<HTMLSelectElement>event.target).value;
+    if (this.selectedCategory == 'all') {
+      this.getGraph();
+    }
+    else {
+    this.coursesByCat = this.courses.filter((x: any) => { return x.category == this.selectedCategory });
+    this.courseName = this.coursesByCat.map((data: { courseName: any; }) => data.courseName);
+    this.avgrating = this.coursesByCat.map((data: { avgrating: any; }) => data.avgrating);
+    this.lineChartLabels = this.courseName;
+    this.lineChartData = [{ data: this.avgrating, label: 'Ratings' }];
+    }
+  }
+
 }

@@ -15,7 +15,7 @@ export class ViewVideoComponent implements OnInit {
   videoByCourse: any
   courses: any
   courseName: any
-  videosByCourseCount: any
+  videosByCourseCount: Array<any>=[];
   constructor(private as: AdminService,private router:Router,public dialog: MatDialog) { }
 
   ngOnInit(): void {

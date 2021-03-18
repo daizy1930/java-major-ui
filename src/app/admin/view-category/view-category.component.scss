@@ -43,6 +43,6 @@ $font-faimily: gotham-rounded,helvetica neue,helvetica !important;
 .cat{
   cursor: pointer;
 }
-// .myTempDiv{
-//   height: 100vh;;
-// }
+.headingFonts{
+  color: darken($theme-color, 20)
+}

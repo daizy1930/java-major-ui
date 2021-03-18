@@ -20,13 +20,12 @@ $font-faimily: gotham-rounded,helvetica neue,helvetica !important;
     border: 1px $theme-color;
     color: white;
   }
-  a{
-    text-decoration: none;
-  }
   .navigateButtons{
     color: lighten($theme-color, 10);
   }
- 
+  a{
+    text-decoration: none;
+  }
   .navigateCards{
     // transform: scale(1.05);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);

@@ -37,8 +37,8 @@ export class AdminService {
     return this.http.get<any>(environment.baseCourseUrl+"/total");
   }
   getUserCount(): Observable<any> {
-    console.log(environment.baseUserUrl)
-    return this.http.get<any>(environment.baseUserUrl+"/total");
+    console.log(environment.baseUsersUrl)
+    return this.http.get<any>(environment.baseUserUrl+"/usercount");
   }
 
   addCategory(categoryName: any, categoryDesc: any, categoryLogo:any):Observable<any>{
@@ -95,23 +95,26 @@ export class AdminService {
   }
 
   getUsers(): Observable<any> {
-    console.log(environment.baseUserUrl)
-    return this.http.get<any>(environment.baseUserUrl);
+    console.log(environment.baseUsersUrl)
+    return this.http.get<any>(environment.baseUsersUrl);
   }
 
   unlockUserById(userId:any){
     console.log(userId);
-    return this.http.put<any>(environment.baseUserUrl+"/unlockuser/"+userId, {userId})
+    return this.http.put<any>(environment.baseUsersUrl+"/unlockuser/"+userId, {userId})
   }
 
 
   getLockedUsers(): Observable<any>{
-    return this.http.get<any>(environment.baseUserUrl+"/lockedusers")
+    console.log(environment.baseUsersUrl+"/lockedusers");
+    return this.http.get<any>(environment.baseUsersUrl+"/lockedusers")
+    
+    
   }
  
-  // getCourseState(): Observable<any> {
-  //   return this.http.get<any>('http://localhost:9000/admin/coursereports')
-  // }
+  getCourseState(): Observable<any> {
+    return this.http.get<any>(environment.baseCourseReportUrl)
+  }
 
 
 

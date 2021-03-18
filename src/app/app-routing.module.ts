@@ -16,24 +16,82 @@ import { ReportsComponent } from './admin/reports/reports.component';
 import { BarChartComponent } from './admin/bar-chart/bar-chart.component';
 import { LineChartComponent } from './admin/line-chart/line-chart.component';
 import { PieChartComponent } from './admin/pie-chart/pie-chart.component';
+import { CommentChartComponent } from './admin/comment-chart/comment-chart.component';
+import { VideoChartComponent } from './admin/video-chart/video-chart.component';
 
 const routes: Routes = [
-  {path: '', component: AdminDashboardComponent },
-  {path: 'categories', component: ViewCategoryComponent },
-  {path: 'add-category', component: AddCategoryComponent},
-  {path: 'edit-category/:id', component: EditCategoryComponent},
-  {path: 'courses', component: ViewCourseComponent},
-  {path: 'edit-course/:id', component: EditCourseComponent},
-  {path: 'add-course', component: AddCourseComponent},
-  {path: 'videos', component: ViewVideoComponent},
-  {path: 'edit-video/:id', component: EditVideoComponent},
-  {path: 'add-video', component: AddVideoComponent},
-  {path: 'users', component: ViewUserComponent},
-  {path: 'locked-notification', component: LockedUserNotificationComponent},
-  {path: 'reports', component: ReportsComponent},
-  {path: 'bar-chart', component: BarChartComponent},
-  {path: 'line-chart', component: LineChartComponent},
-  {path: 'pie-chart', component: PieChartComponent}
+  {
+    path: '', component: AdminDashboardComponent,
+    data: { role: "ROLE_ADMIN" }
+  },
+  {
+    path: 'categories', component: ViewCategoryComponent,
+    data: { role: "ROLE_ADMIN" }
+  },
+  {
+    path: 'add-category', component: AddCategoryComponent,
+    data: { role: "ROLE_ADMIN" }
+  },
+  {
+    path: 'edit-category/:id', component: EditCategoryComponent,
+    data: { role: "ROLE_ADMIN" }
+  },
+  {
+    path: 'courses', component: ViewCourseComponent,
+    data: { role: "ROLE_ADMIN" }
+  },
+  {
+    path: 'edit-course/:id', component: EditCourseComponent,
+    data: { role: "ROLE_ADMIN" }
+  },
+  {
+    path: 'add-course', component: AddCourseComponent,
+    data: { role: "ROLE_ADMIN" }
+  },
+  {
+    path: 'videos', component: ViewVideoComponent,
+    data: { role: "ROLE_ADMIN" }
+  },
+  {
+    path: 'edit-video/:id', component: EditVideoComponent,
+    data: { role: "ROLE_ADMIN" }
+  },
+  {
+    path: 'add-video', component: AddVideoComponent,
+    data: { role: "ROLE_ADMIN" }
+  },
+  {
+    path: 'users', component: ViewUserComponent,
+    data: { role: "ROLE_ADMIN" }
+  },
+  {
+    path: 'locked-notification', component: LockedUserNotificationComponent,
+    data: { role: "ROLE_ADMIN" }
+  },
+  {
+    path: 'reports', component: ReportsComponent,
+    data: { role: "ROLE_ADMIN" }
+  },
+  {
+    path: 'bar-chart', component: BarChartComponent,
+    data: { role: "ROLE_ADMIN" }
+  },
+  {
+    path: 'line-chart', component: LineChartComponent,
+    data: { role: "ROLE_ADMIN" }
+  },
+  {
+    path: 'pie-chart', component: PieChartComponent,
+    data: { role: "ROLE_ADMIN" }
+  },
+  {
+    path: 'comment-chart', component: CommentChartComponent,
+    data: { role: "ROLE_ADMIN" }
+  },
+  {
+    path: 'video-chart', component: VideoChartComponent,
+    data: { role: "ROLE_ADMIN" }
+  }
 
 ];
 @NgModule({

@@ -14,12 +14,15 @@ export class AdminDashboardComponent implements OnInit {
   total_cat:any
   total_cou:any
   total_user:any
+  username: any
 
   constructor(private as: AdminService) { 
   }
   
   
   ngOnInit(): void {
+
+    this.username=sessionStorage.getItem("username")
 
     this.as.getCategories()
     .subscribe((data)=>{
