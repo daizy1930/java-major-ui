@@ -3,6 +3,7 @@ import { AdminService } from 'src/app/admin.service';
 import { Router } from '@angular/router';
 import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
 import {  MatDialog } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-locked-user-notification',
@@ -14,8 +15,11 @@ export class LockedUserNotificationComponent implements OnInit {
 
   searchInput!: string
   userBySearch: any;
+  
 
-  constructor(private as: AdminService, private router: Router, public dialog: MatDialog) { }
+  constructor(private as: AdminService, private router: Router, public dialog: MatDialog) {
+  
+   }
 
   ngOnInit(): void {
     
@@ -44,6 +48,7 @@ export class LockedUserNotificationComponent implements OnInit {
         this.as.unlockUserById(id).subscribe((data:any)=>{
              console.log(data);
             this.getLocalUsers()
+            this.as.updateCartSizeData()
         }, (err)=>{
           console.log('Error is:',err);
         });

@@ -22,7 +22,7 @@ import { VideoChartComponent } from './admin/video-chart/video-chart.component';
 const routes: Routes = [
   {
     path: '', component: AdminDashboardComponent,
-    data: { role: "ROLE_ADMIN" }
+    data: { role: "ADMIN" }
   },
   {
     path: 'categories', component: ViewCategoryComponent,

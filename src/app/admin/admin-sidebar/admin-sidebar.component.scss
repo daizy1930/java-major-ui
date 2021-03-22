@@ -250,12 +250,14 @@ a.article:hover {
         display: flex;
         width: 10%;
         float: left;
+       
         align-items: stretch;
         perspective: 1500px;
     
     }
     
     #sidebar.active {
+        z-index: -200px;
         margin-left: 0;
         transform: none;
     }

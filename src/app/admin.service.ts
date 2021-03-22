@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { environment } from '../environments/environment.prod'
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { Category } from './category';
 
 
@@ -10,6 +10,11 @@ import { Category } from './category';
   providedIn: 'root'
 })
 export class AdminService {
+
+
+
+  len= new BehaviorSubject<any>(0)
+  lenupdate=this.len.asObservable()
   
   constructor(private http: HttpClient) {
     // this.http.get(environment.baseUserUrl);
@@ -96,7 +101,9 @@ export class AdminService {
 
   getUsers(): Observable<any> {
     console.log(environment.baseAdminUrl)
-    return this.http.get<any>(environment.baseAdminUrl);
+    console.log("Inside service");
+    
+    return this.http.get<any>(environment.baseAdminUrl+"/user");
   }
 
   unlockUserById(userId:any){
@@ -116,9 +123,13 @@ export class AdminService {
     return this.http.get<any>(environment.baseCourseReportUrl)
   }
 
+  updateCartSizeData(){
+    this.getLockedUsers().subscribe((data1) => {
+      console.log("The cart data ",data1)
+      this.len.next(data1.length)
+    })
 
-
-
+  }
 
   }
 

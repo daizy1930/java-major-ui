@@ -30,6 +30,8 @@ export class ViewUserComponent implements OnInit {
 
     this.as.getUsers().subscribe((data) => {
       this.users = data;
+      console.log("Get users");
+      
       console.log(this.users[0].username);
       this.defprint()
     },
@@ -46,7 +48,7 @@ export class ViewUserComponent implements OnInit {
 defprint(){
   this.filteredArray = this.users.slice(0, this.defaultRecords);
   console.log(this.filteredArray); 
- console.log("Inside on init");
+ console.log("Inside oninit");
 }
 
 
