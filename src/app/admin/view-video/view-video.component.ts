@@ -11,88 +11,91 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class ViewVideoComponent implements OnInit {
 
-  videos: any
-  videoByCourse: any
+  videos: Array<any>=[]
+  videoByCourse: Array<any> = [];
   courses: any
   courseName: any
-  videosByCourseCount: Array<any>=[];
-  constructor(private as: AdminService,private router:Router,public dialog: MatDialog) { }
+  videosByCourseCount: Array<any> = [];
+  constructor(private as: AdminService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
 
     this.as.getCourses()
-    .subscribe((data) => {
-      this.courses = data
-      console.log(this.courses);
+      .subscribe((data) => {
+        this.courses = data
+        console.log(this.courses);
 
-      
-    },
-    (err)=>{
-      console.log('Error is:',err);
-      
-    });
+
+      },
+        (err) => {
+          console.log('Error is:', err);
+
+        });
 
     this.getLocalVideos();
 
   }
 
-  getVideosByCourse(uniqueCourse: any){
+  getVideosByCourse(uniqueCourse: any) {
     console.log(uniqueCourse);
-   this.videoByCourse=this.videos.filter((x:any)=>{return x.course==uniqueCourse});
-   console.log(this.videoByCourse);
+    if (uniqueCourse != null) {
 
-   this.videosByCourseCount = this.videoByCourse.length
-   if(this.videoByCourse.length == 0){
-     this.courseName = "No videos in given course"
-   }
-   this.courseName = this.videoByCourse[0].course
-   
-       }
+      this.videoByCourse = this.videos.filter((x: any) => { return x.course == uniqueCourse });
+      console.log(this.videoByCourse);
 
-       editVideo(id:any){
-        console.log(id)
-        
-        return this.router.navigate(['/edit-video/',id])
-        
+      // this.videosByCourseCount = this.videoByCourse.length
+      if (this.videoByCourse.length == 0) {
+        this.courseName = "No videos in given course"
       }
-    
-      deleteVideo(id: number){
-        let dialogref=  this.dialog.open(DialogBoxComponent, {
-          width: '250px',
-          data: {id:id}
-        });
-        dialogref.afterClosed().subscribe((result: boolean | null | undefined)=>{
-          if(result!=undefined && result!=null && result==true)
-          {
-         this.as.deleteVideo(id).subscribe((data)=> 
-         {
-           console.log("successfully deleted...");
-           this.getLocalVideos();
-           this.router.navigate(['/videos'])
-           
-         }
-         )
+      this.courseName = this.videoByCourse[0].course
+
+    }
+  }
+
+  editVideo(id: any) {
+    console.log(id)
+
+    return this.router.navigate(['/edit-video/', id])
+
+  }
+
+  deleteVideo(id: number) {
+    let dialogref = this.dialog.open(DialogBoxComponent, {
+      width: '250px',
+      data: { id: id }
+    });
+    dialogref.afterClosed().subscribe((result: boolean | null | undefined) => {
+      if (result != undefined && result != null && result == true) {
+        this.as.deleteVideo(id).subscribe((data) => {
+          console.log("successfully deleted...");
+          this.getLocalVideos();
+          this.router.navigate(['/videos'])
 
         }
-      })
-        
+        )
+
       }
-  getLocalVideos(){
+    })
+
+  }
+  getLocalVideos() {
     this.as.getVideos()
-        .subscribe((data)=>{
-       
-          
-          this.videos=data;
-          this.videoByCourse=this.videos;
+      .subscribe((data) => {
+
+        if (data != null) {
+
+          this.videos = data;
+          this.videoByCourse = this.videos;
           console.log(this.videos);
-           console.log("glfsdfg");
-          
-        },
-        (err)=>{
-          console.log('Error is:',err);
-          
+          console.log("glfsdfg");
+        }
+
+      },
+        (err) => {
+          console.log('Error is:', err);
+
         });
   }
 
-  
+
 }

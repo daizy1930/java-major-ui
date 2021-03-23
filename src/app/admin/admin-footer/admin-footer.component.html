@@ -1,14 +1,13 @@
-<br>
-<div class="mt-5"></div>
+
 
     <footer class="text-dark  text-lg-start myFooter">
 
-        <div class="container p-4 mb-5">
+        <div class="container p-4 mb-5" *ngIf="(userrole | async) === 'user'">
             <!--Grid row-->
             <div class="row ">
               <!--Grid column-->
               <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                <h5 class="text-uppercase">Cybage learning</h5>
+                <h5 class="text-uppercase">Cybage e-learning</h5>
         
                 <p>
                     Cybage is a global software product engineering services organization, that designs and provides services in technology, strategy, and operations. Our scientifically- driven, data-oriented, and delivery-focused approach enables us to spot unmet needs, deliver concrete breakthrough products and services, and make organizations more innovative and agile.
@@ -22,7 +21,7 @@
         
                 <ul class="list-unstyled mb-0">
                   <li>
-                    <a href="#!" class="text-dark footerContent">Services</a>
+                    <a href="#!" class="text-dark footerContent">Home</a>
                   </li>
                   <li>
                     <a href="#!" class="text-dark footerContent">About</a>
@@ -30,9 +29,7 @@
                   <li>
                       <a href="#!" class="text-dark footerContent">Contact</a>
                     </li>
-                  <li>
-                    <a href="#!" class="text-dark footerContent">Our Projects</a>
-                  </li>
+    
                 </ul>
               </div>
               <!--Grid column-->
@@ -43,16 +40,16 @@
         
                 <ul class="list-unstyled">
                   <li>
-                    <a href="#!" class="text-dark footerContent "><i class="fab fa-facebook-f"></i>Link 1</a>
+                    <a href="#!" class="text-dark footerContent "><i class="fab fa-facebook-f"></i>Facebook</a>
                   </li>
                   <li>
-                    <a href="#!" class="text-dark footerContent"><i class="fab fa-twitter"></i>Link 2</a>
+                    <a href="#!" class="text-dark footerContent"><i class="fab fa-twitter"></i>Twitter</a>
                   </li>
                   <li>
-                    <a href="#!" class="text-dark footerContent"><i class="fab fa-instagram"></i>Link 3</a>
+                    <a href="#!" class="text-dark footerContent"><i class="fab fa-instagram"></i>Instagram</a>
                   </li>
                   <li>
-                    <a href="#!" class="text-dark footerContent"><i class="fab fa-whatsapp"></i>Link 4</a>
+                    <a href="#!" class="text-dark footerContent"><i class="fab fa-whatsapp"></i>Whatsapp</a>
                   </li>
                 </ul>
               </div>
@@ -62,7 +59,7 @@
           </div>
 
       <!-- Copyright -->
-      <div class="text-center myBottom p-3 text-dark ">
+      <div class="text-center myBottom p-3 text-dark fixed-bottom">
         © 2021 Copyright:
         <a class="text-dark" href="#">G-6 Cybage E-Learning</a>
       </div>

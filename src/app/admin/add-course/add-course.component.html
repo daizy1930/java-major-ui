@@ -13,7 +13,7 @@
                                                 <div class="row">
                                                         <div class="col-lg-2">Select Category:</div>
                                                         <div class="col-lg-8"><select formControlName="categoryId" class="form-select" [ngClass]="{'is-invalid':courseForm.controls.categoryId.touched && courseForm.controls.categoryId.errors}">
-                                                                                <option *ngFor="let c of categories" [ngValue]="c.categoryId" (click)="selectedCategory(c.categoryId)">{{ c.categoryName }}</option>
+                                                                                <option *ngFor="let c of categories" [ngValue]="c[1]" (click)="selectedCategory(c[1])">{{ c[0] }}</option>
                                                                               </select>
                                                                               <div>
                                                                                         <div *ngIf="courseForm.controls.categoryId.touched && courseForm.controls.categoryId.errors">

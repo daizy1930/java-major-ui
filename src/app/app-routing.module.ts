@@ -18,6 +18,7 @@ import { LineChartComponent } from './admin/line-chart/line-chart.component';
 import { PieChartComponent } from './admin/pie-chart/pie-chart.component';
 import { CommentChartComponent } from './admin/comment-chart/comment-chart.component';
 import { VideoChartComponent } from './admin/video-chart/video-chart.component';
+import { UserLogComponent } from './admin/user-log/user-log.component';
 
 const routes: Routes = [
   {
@@ -66,6 +67,10 @@ const routes: Routes = [
   },
   {
     path: 'locked-notification', component: LockedUserNotificationComponent,
+    data: { role: "ROLE_ADMIN" }
+  },
+  {
+    path: 'user-logs', component: UserLogComponent,
     data: { role: "ROLE_ADMIN" }
   },
   {

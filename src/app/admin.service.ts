@@ -15,6 +15,7 @@ export class AdminService {
 
   len= new BehaviorSubject<any>(0)
   lenupdate=this.len.asObservable()
+  userrole: any;
   
   constructor(private http: HttpClient) {
     // this.http.get(environment.baseUserUrl);
@@ -33,6 +34,11 @@ export class AdminService {
   getCategoriesById(id: any): Observable<any>{
     return this.http.get<any>(environment.baseCategoryUrl+"/"+id);
   }
+
+  getCategoriesName(): Observable<any>{
+    return this.http.get<any>(environment.baseCategoryUrl+"/category-name");
+  }
+
   getCategoriesCount(): Observable<any> {
     console.log(environment.baseCategoryUrl)
     return this.http.get<any>(environment.baseCategoryUrl+"/total");
@@ -125,7 +131,6 @@ export class AdminService {
 
   updateCartSizeData(){
     this.getLockedUsers().subscribe((data1) => {
-      console.log("The cart data ",data1)
       this.len.next(data1.length)
     })
 

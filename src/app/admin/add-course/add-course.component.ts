@@ -28,13 +28,13 @@ export class AddCourseComponent implements OnInit {
 
     })
 
-    this.as.getCategories()
+    this.as.getCategoriesName()
     .subscribe((data)=>{
       
       
       this.categories=data;
-      console.log(this.categories.categoryName);
-      // console.log("glfjkdsghlgkjds");
+      console.log(this.categories[0][0]);
+  
       
     },
     (err)=>{
@@ -59,7 +59,7 @@ export class AddCourseComponent implements OnInit {
 
   selectedCategory(catId: any){
     console.log(catId);
-    
+
   }
 
   readUrl(event:any) {

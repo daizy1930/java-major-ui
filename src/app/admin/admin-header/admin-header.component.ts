@@ -19,7 +19,6 @@ export class AdminHeaderComponent implements OnInit {
     this.as.lenupdate.subscribe((data: any)=>{
       this.len=data
       this.len1=data
-      console.log(this.len+"<<<<<<<<<"+this.len1);
       
     })
    }
