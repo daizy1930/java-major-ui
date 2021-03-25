@@ -24,7 +24,6 @@ export class ViewUserComponent implements OnInit {
     
     
    }
-  // users = [{ name: "1" }, { name: "2" }, { name: "3" }, { name: "4" }, { name: "5" }, { name: "6" }, { name: "7" }, { name: "8" }, { name: "9" }, { name: "10" }, { name: "11" }, { name: "12" }, { name: "13" }];
   
   ngOnInit(): void {
 
@@ -60,13 +59,6 @@ defprint(){
 
   }
 
-  // searchUsers(uname: String) {
-  //   console.log(uname);
-
-  
-  //     this.userBySearch = this.users.filter((user: any) => user.username.toLowerCase().includes(uname));
-    
-  // }
 
   onPaginateChange(data: any) {
     console.log(data);

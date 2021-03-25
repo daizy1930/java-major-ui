@@ -15,7 +15,7 @@ export class ViewVideoComponent implements OnInit {
   videoByCourse: Array<any> = [];
   courses: any
   courseName: any
-  videosByCourseCount: Array<any> = [];
+  videosByCourseCount: any
   constructor(private as: AdminService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -43,7 +43,7 @@ export class ViewVideoComponent implements OnInit {
       this.videoByCourse = this.videos.filter((x: any) => { return x.course == uniqueCourse });
       console.log(this.videoByCourse);
 
-      // this.videosByCourseCount = this.videoByCourse.length
+      this.videosByCourseCount = this.videoByCourse.length
       if (this.videoByCourse.length == 0) {
         this.courseName = "No videos in given course"
       }
